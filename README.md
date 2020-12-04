@@ -1,6 +1,6 @@
 # url: url/api/{dev_id}/{timestamp}/{type}
 
-## header:
+## header
 ```json
 {
   "Content-Type": "application/json",
@@ -8,7 +8,7 @@
 }
 ```
 
-## response:
+## response
 ```json
 {
   "status": "true|false",
@@ -25,9 +25,11 @@
 ```
 
 ### example call
- - url
 
-url: openapi.modular.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
+ - url
+```
+openapi.modulars.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
+```
 
  - header
 ```json
@@ -55,7 +57,7 @@ url: openapi.modular.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
 
 # url: url/api/{dev_id}/{timestamp}
 
-## header:
+## header
 ```json
 {
   "Content-Type": "application/json",
@@ -63,7 +65,7 @@ url: openapi.modular.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
 }
 ```
 
-## response:
+## response
 ```json
 {
   "status": "true|false",
@@ -82,12 +84,13 @@ url: openapi.modular.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
 ### example call
 
  - url
-
-url: openapi.modular.io/api/v1/IMEU001/2020-12-04T13:42:00Z
-
+```
+openapi.modulars.io/api/v1/IMEU001/2020-12-04T13:42:00Z
+```
   or
-
-url: openapi.modular.io/api/v1/IMEU001/latest
+```
+openapi.modulars.io/api/v1/IMEU001/latest
+```
 
  - header
 ```json
@@ -125,7 +128,7 @@ url: openapi.modular.io/api/v1/IMEU001/latest
 
 # url: url/api/{dev_id}/{type}
 
-## header:
+## header
 ```json
 {
   "Content-Type": "application/json",
@@ -133,7 +136,7 @@ url: openapi.modular.io/api/v1/IMEU001/latest
 }
 ```
 
-## response:
+## response
 ```json
 {
   "status": "true|false",
@@ -152,8 +155,9 @@ url: openapi.modular.io/api/v1/IMEU001/latest
 ### example call
 
  - url
-
-url: openapi.modular.io/api/IMEU001/temp
+```
+openapi.modulars.io/api/IMEU001/temp
+```
 
  - header
 ```json
@@ -191,7 +195,7 @@ url: openapi.modular.io/api/IMEU001/temp
 
 # url: url/api/{dev_id}
 
-## header:
+## header
 ```json
 {
   "Content-Type": "application/json",
@@ -199,7 +203,7 @@ url: openapi.modular.io/api/IMEU001/temp
 }
 ```
 
-## response:
+## response
 ```json
 {
   "status": "true|false",
@@ -218,8 +222,9 @@ url: openapi.modular.io/api/IMEU001/temp
 ### example call
 
  - url
-
-url: openapi.modular.io/api/v1/IMEU001
+```
+openapi.modulars.io/api/v1/IMEU001
+```
 
  - header
 ```json
@@ -278,7 +283,7 @@ url: openapi.modular.io/api/v1/IMEU001
 
 # url: url/api
 
-## header:
+## header
 ```json
 {
   "Content-Type": "application/json",
@@ -286,7 +291,7 @@ url: openapi.modular.io/api/v1/IMEU001
 }
 ```
 
-## response:
+## response
 ```json
 {
   "dev_ids": [{
@@ -299,8 +304,9 @@ url: openapi.modular.io/api/v1/IMEU001
 ### example call
 
  - url
-
-url: openapi.modular.io/api/v1
+```
+openapi.modulars.io/api/v1
+```
 
  - header
 ```json
