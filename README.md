@@ -86,9 +86,7 @@ openapi.modulars.io/api/v1/IMEU001/2020-12-04T13:42:00Z/temp
  - url
 ```
 openapi.modulars.io/api/v1/IMEU001/2020-12-04T13:42:00Z
-```
-  or
-```
+#   or
 openapi.modulars.io/api/v1/IMEU001/latest
 ```
 
@@ -156,7 +154,7 @@ openapi.modulars.io/api/v1/IMEU001/latest
 
  - url
 ```
-openapi.modulars.io/api/IMEU001/temp
+openapi.modulars.io/api/v1/IMEU001/temp
 ```
 
  - header
