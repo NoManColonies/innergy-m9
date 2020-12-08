@@ -43,8 +43,7 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
+wincmd =
 argglobal
 setlocal fdm=syntax
 setlocal fde=0
@@ -96,8 +95,7 @@ normal! zt
 54
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -385,7 +385,7 @@ db.createCollection("users",
          bsonType: "object",
          required: [
         "role",
-        "uuid"
+        "u_id"
       ],
          properties: {
             role: {
@@ -395,7 +395,7 @@ db.createCollection("users",
             "device"
           ]
         },
-            uuid: {
+            u_id: {
                bsonType: "string"
         },
       }
