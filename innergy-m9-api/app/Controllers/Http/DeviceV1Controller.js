@@ -1,7 +1,7 @@
 'use strict'
 
 const DeviceModel = use('App/Models/User')
-const RawModel = use('App/Models/Raw')
+// const RawModel = use('App/Models/Raw')
 const SensorModel = use('App/Models/Sensor')
 const { v4: uuidv4 } = require('uuid')
 
@@ -11,16 +11,34 @@ const units = {
 }
 
 class DeviceV1Controller {
-  async register ({ request, response }) {
-    const device = await DeviceModel.create({ u_id: uuidv4(), role: 'device' })
+  async registerDevice ({ request, response, auth }) {
+    const { u_id, role } = request
+    const uuid = uuidv4()
+
+    if (role !== 'user') {
+      return response.status(403).send({
+        status: 'failed',
+        message: 'Access denied. only user can add devices.'
+      })
+    }
+
+    const device = await DeviceModel.create({
+      u_id: uuid,
+      role: 'device',
+      auth_id: uuid,
+      owner: u_id
+    })
+
+    const token = await auth.authenticator('api').generate(device)
 
     return response.status(201).send({
       status: 'success',
-      device
+      device,
+      token
     })
   }
 
-  async feed ({ request, response }) {
+  async store ({ request, response }) {
     const { params, body } = request
 
     const { data } = body
@@ -42,23 +60,23 @@ class DeviceV1Controller {
     const promises = data.map(async d => {
       const { value, type } = d
 
-      const sensor = await SensorModel.findBy({
+      let sensor = await SensorModel.findBy({
         ref_u_id: dev_id,
         type,
-        timestamp: { $gte: dateBegin }
+        timestamp_date: { $gte: dateBegin }
       })
 
       if (sensor) {
         return sensor.raws().create({ value })
       }
 
-      const newSensor = await device.sensor().create({
+      sensor = await device.sensors().create({
         s_id: uuidv4(),
         type,
         unit: units[type]
       })
 
-      return newSensor.raws().create({ value })
+      return sensor.raws().create({ value })
     })
 
     await Promise.all(promises)
@@ -73,54 +91,14 @@ class DeviceV1Controller {
     })
   }
 
-  async store ({ request, response }) {
-    const { params, body } = request
+  async index ({ response, request }) {
+    const { role, u_id } = request
 
-    const { value } = body
-
-    const { dev_id, type } = params
-
-    const device = await DeviceModel.where({ u_id: dev_id })
+    const devices = await DeviceModel.where(
+      role === 'admin' ? { role: 'device' } : { role: 'device', owner: u_id }
+    )
+      .setHidden(['role'])
       .fetch()
-      .then(query => query.first())
-
-    const raw = await RawModel.findBy({ ref_u_id: dev_id, type })
-
-    if (raw) {
-      const { valueProperties } = raw.toJSON()
-
-      raw.merge({ valueProperties: [...valueProperties, { value, timestamp: new Date() }] })
-
-      await raw.save()
-
-      const result = await DeviceModel.where({ u_id: dev_id })
-        .with('raws')
-        .fetch()
-
-      return response.status(200).send({
-        status: 'success',
-        result
-      })
-    }
-
-    await device.raws().create({
-      type,
-      valueProperties: [{ value, timestamp: new Date() }],
-      unit: units[type]
-    })
-
-    const result = await DeviceModel.where({ u_id: dev_id })
-      .with('raws')
-      .fetch()
-
-    return response.status(201).send({
-      status: 'success',
-      result
-    })
-  }
-
-  async index ({ response }) {
-    const devices = await DeviceModel.where({ role: 'device' }).fetch()
 
     return response.status(200).send({
       status: 'success',
@@ -129,7 +107,7 @@ class DeviceV1Controller {
   }
 
   async show ({ request, response }) {
-    const { params } = request
+    const { params, u_id, role } = request
 
     const { dev_id } = params
 
@@ -141,9 +119,10 @@ class DeviceV1Controller {
       }-${currentDate.getDate()}`
     )
 
-    const result = await DeviceModel.where({ u_id: dev_id })
-      .with('sensors', builder => builder.where({ timestamp: { $gte: dateBegin } }))
-      .with('raws')
+    const result = await DeviceModel.where(
+      role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+    )
+      .with('sensors', builder => builder.where({ timestamp: { $gte: dateBegin } }).with('raws'))
       .fetch()
 
     return response.status(200).send({
@@ -153,11 +132,15 @@ class DeviceV1Controller {
   }
 
   async showWithTimestamp ({ request, response }) {
-    const { params } = request
+    const { params, u_id, role } = request
 
     const { dev_id, timestamp } = params
 
-    const result = await DeviceModel.where({ u_id: dev_id }).with('sensors.raws', builder => builder.where({ timestamp }))
+    const result = await DeviceModel.where(
+      role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+    )
+      .with('sensors.raws', builder => builder.where({ timestamp }))
+      .fetch()
 
     return response.status(200).send({
       status: 'success',
@@ -166,13 +149,14 @@ class DeviceV1Controller {
   }
 
   async showWithType ({ request, response }) {
-    const { params } = request
+    const { params, u_id, role } = request
 
     const { dev_id, type } = params
 
-    const result = await DeviceModel.where({ u_id: dev_id })
-      .with('sensors', builder => builder.where({ type }))
-      .with('raws')
+    const result = await DeviceModel.where(
+      role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+    )
+      .with('sensors', builder => builder.where({ type }).with('raws'))
       .fetch()
 
     return response.status(200).send({
@@ -182,13 +166,16 @@ class DeviceV1Controller {
   }
 
   async showWithFilter ({ request, response }) {
-    const { params } = request
+    const { params, u_id, role } = request
 
     const { dev_id, type, timestamp } = params
 
-    const result = await DeviceModel.where({ u_id: dev_id })
-      .with('sensors', builder => builder.where({ type }))
-      .with('raws', builder => builder.where({ timestamp }))
+    const result = await DeviceModel.where(
+      role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+    )
+      .with('sensors', builder => builder
+        .where({ type })
+        .with('raws', subBuilder => subBuilder.where({ timestamp })))
       .fetch()
 
     return response.status(200).send({

@@ -9,12 +9,12 @@ endif
 set shortmess=aoO
 badd +13 innergy-m9-api/database/migrations/1503250034279_user.js
 badd +9 innergy-m9-api/database/migrations/1503250034280_token.js
-badd +43 innergy-m9-api/app/Models/User.js
+badd +30 innergy-m9-api/app/Models/User.js
 badd +7 innergy-m9-api/app/Models/Token.js
-badd +54 innergy-m9-api/start/routes.js
+badd +51 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
-badd +5 innergy-m9-api/config/auth.js
+badd +73 innergy-m9-api/config/auth.js
 badd +14 innergy-m9-api/app/Controllers/Http/DeviceController.js
 badd +1 innergy-m9-api/utils/deviceUtils/deviceUtils.func.js
 badd +19 innergy-m9-api/config/database.js
@@ -23,36 +23,31 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +176 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +178 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +29 innergy-m9-api/package.json
-badd +17 innergy-m9-api/app/Models/Raw.js
+badd +15 innergy-m9-api/app/Models/Raw.js
 badd +9 users.json
 badd +6 raws.json
-badd +17 innergy-m9-api/app/Models/Sensor.js
+badd +3 innergy-m9-api/app/Models/Sensor.js
+badd +39 innergy-m9-api/app/Middleware/Auth.js
+badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
+badd +1 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+edit innergy-m9-api/app/Controllers/Http/AuthController.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
 wincmd w
 wincmd t
 set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe '2resize ' . ((&lines * 25 + 26) / 52)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
-exe '3resize ' . ((&lines * 24 + 26) / 52)
-exe 'vert 3resize ' . ((&columns * 117 + 118) / 236)
+wincmd =
 argglobal
 setlocal fdm=syntax
 setlocal fde=0
@@ -62,106 +57,49 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-13
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+if bufexists("innergy-m9-api/start/routes.js") | buffer innergy-m9-api/start/routes.js | else | edit innergy-m9-api/start/routes.js | endif
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+33
 normal! zo
-23
+33
 normal! zo
-32
+40
 normal! zo
-42
+43
 normal! zo
-42
-normal! zo
-45
-normal! zo
-45
+46
 normal! zo
 51
 normal! zo
 55
 normal! zo
-55
+58
 normal! zo
-70
+62
 normal! zo
-70
-normal! zo
-76
-normal! zo
-155
-normal! zo
-162
-normal! zo
-162
-normal! zo
-let s:l = 69 - ((41 * winheight(0) + 25) / 50)
+let s:l = 49 - ((46 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-69
-normal! 0
+49
+normal! 064|
 wincmd w
-argglobal
-if bufexists("innergy-m9-api/app/Models/Raw.js") | buffer innergy-m9-api/app/Models/Raw.js | else | edit innergy-m9-api/app/Models/Raw.js | endif
-setlocal fdm=syntax
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-6
-normal! zo
-7
-normal! zo
-11
-normal! zo
-15
-normal! zo
-19
-normal! zo
-let s:l = 17 - ((14 * winheight(0) + 12) / 25)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-17
-normal! 03|
-wincmd w
-argglobal
-if bufexists("innergy-m9-api/app/Models/Sensor.js") | buffer innergy-m9-api/app/Models/Sensor.js | else | edit innergy-m9-api/app/Models/Sensor.js | endif
-setlocal fdm=syntax
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-6
-normal! zo
-7
-normal! zo
-11
-normal! zo
-15
-normal! zo
-19
-normal! zo
-23
-normal! zo
-let s:l = 24 - ((19 * winheight(0) + 12) / 24)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-24
-normal! 024|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe '2resize ' . ((&lines * 25 + 26) / 52)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
-exe '3resize ' . ((&lines * 24 + 26) / 52)
-exe 'vert 3resize ' . ((&columns * 117 + 118) / 236)
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

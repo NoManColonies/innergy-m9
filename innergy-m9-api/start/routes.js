@@ -31,31 +31,36 @@ Route.group(() => {
 }).prefix('api/v0')
 
 Route.group(() => {
-  Route.post('/feed', 'DeviceV1Controller.register').middleware('auth:user')
-  Route.post('/feed/:dev_id', 'DeviceV1Controller.feed').middleware(
-    'auth:device'
+  Route.post('/', 'DeviceV1Controller.registerDevice').middleware('auth:user')
+  Route.post('/:dev_id', 'DeviceV1Controller.store').middleware('auth:device')
+  Route.post('/user/create', 'AuthController.store').middleware('guest')
+  Route.post('/user/jwt/login', 'AuthController.loginJwt').middleware('guest')
+  Route.post('/user/api/login', 'AuthController.loginApi').middleware('guest')
+  Route.put('/user/jwt/token', 'AuthController.refreshJwtToken')
+  Route.delete('/user/jwt/logout', 'AuthController.logoutJwt').middleware(
+    'auth:user,admin'
   )
-  Route.post('/feed/:dev_id/:type', 'DeviceV1Controller.store').middleware(
-    'auth:device'
+  Route.delete('/user/api/logout', 'AuthController.logoutApi').middleware(
+    'auth:user,admin'
   )
-  Route.get('/view', 'DeviceV1Controller.index').middleware('auth:user,admin')
-  Route.get('/view/:dev_id', 'DeviceV1Controller.show').middleware(
+  Route.delete('/user/api/revoke', 'AuthController.revokeApi').middleware(
+    'auth:user'
+  )
+  Route.get('/', 'DeviceV1Controller.index').middleware('auth:user,admin')
+  Route.get('/:dev_id', 'DeviceV1Controller.show').middleware('auth:user,admin')
+  Route.get(
+    '/:dev_id/t/:timestamp',
+    'DeviceV1Controller.showWithTimestamp'
+  ).middleware('auth:user,admin')
+  Route.get('/:dev_id/s/:type', 'DeviceV1Controller.showWithType').middleware(
     'auth:user,admin'
   )
   Route.get(
-    '/view/:dev_id/d/:timestamp',
-    'DeviceV1Controller.showWithTimestamp'
-  ).middleware('auth:user,admin')
-  Route.get(
-    '/view/:dev_id/t/:type',
-    'DeviceV1Controller.showWithType'
-  ).middleware('auth:user,admin')
-  Route.get(
-    '/view/:dev_id/d/:timestamp/t/:type',
+    '/:dev_id/t/:timestamp/s/:type',
     'DeviceV1Controller.showWithFilter'
   ).middleware('auth:user,admin')
   Route.get(
-    '/view/:dev_id/t/:type/d/:timestamp',
+    '/:dev_id/s/:type/t/:timestamp',
     'DeviceV1Controller.showWithFilter'
   ).middleware('auth:user,admin')
 }).prefix('api/v1')
