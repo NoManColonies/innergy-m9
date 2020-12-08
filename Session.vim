@@ -14,7 +14,7 @@ badd +7 innergy-m9-api/app/Models/Token.js
 badd +51 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
-badd +73 innergy-m9-api/config/auth.js
+badd +6 innergy-m9-api/config/auth.js
 badd +14 innergy-m9-api/app/Controllers/Http/DeviceController.js
 badd +1 innergy-m9-api/utils/deviceUtils/deviceUtils.func.js
 badd +19 innergy-m9-api/config/database.js
@@ -33,10 +33,10 @@ badd +6 raws.json
 badd +3 innergy-m9-api/app/Models/Sensor.js
 badd +39 innergy-m9-api/app/Middleware/Auth.js
 badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
-badd +1 innergy-m9-api/app/Controllers/Http/AuthController.js
+badd +7 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/app/Controllers/Http/AuthController.js
+edit innergy-m9-api/config/auth.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -47,7 +47,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
 argglobal
 setlocal fdm=syntax
 setlocal fde=0
@@ -57,12 +58,22 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+6
+normal! zo
+30
+normal! zo
+51
+normal! zo
+68
+normal! zo
+86
+normal! zo
+let s:l = 31 - ((27 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+31
+normal! 019|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/start/routes.js") | buffer innergy-m9-api/start/routes.js | else | edit innergy-m9-api/start/routes.js | endif
@@ -99,7 +110,8 @@ normal! zt
 49
 normal! 064|
 wincmd w
-wincmd =
+exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
