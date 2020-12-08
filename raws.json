@@ -1,0 +1,40 @@
+db.createCollection("raws",
+{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [
+        "type",
+        "unit",
+        "valueProperties"
+      ],
+         properties: {
+            type: {
+               bsonType: "string"
+        },
+            unit: {
+               bsonType: "string"
+        },
+            address: {
+               bsonType: "array",
+               required: [
+            "value",
+            "timestamp"
+          ],
+               properties: {
+                  value: {
+                     bsonType: [
+                "string",
+                "int",
+                "double"
+              ]
+            },
+                  timestamp: {
+                     bsonType: "string"
+            }
+          }
+        }
+      }
+    }
+  }
+})

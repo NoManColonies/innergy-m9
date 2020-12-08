@@ -1,0 +1,11 @@
+# Node modules
+innergy-m9-api/node_modules
+
+# Adonis directory for storing tmp files
+innergy-m9-api/tmp
+
+# Environment variables, never commit this file
+innergy-m9-api/.env
+
+# The development sqlite file
+innergy-m9-api/database/*.sqlite

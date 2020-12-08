@@ -1,0 +1,24 @@
+db.createCollection("users",
+{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [
+        "role",
+        "u_id"
+      ],
+         properties: {
+            role: {
+               enum: [
+            "user",
+            "admin",
+            "device"
+          ]
+        },
+            u_id: {
+               bsonType: "string"
+        },
+      }
+    }
+  }
+})
