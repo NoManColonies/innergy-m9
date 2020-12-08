@@ -340,9 +340,36 @@ db.createCollection("raws",
       $jsonSchema: {
          bsonType: "object",
          required: [
+        "value",
+        "timestamp"
+      ],
+      properties: {
+        value: {
+          bsonType: [
+            "string",
+            "int",
+            "double"
+          ]
+        },
+        timestamp: {
+          bsonType: "string"
+        }
+      }
+    }
+  }
+})
+```
+
+ - sensors
+```
+db.createCollection("sensors",
+{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [
         "type",
-        "unit",
-        "valueProperties"
+        "unit"
       ],
          properties: {
             type: {
@@ -351,25 +378,6 @@ db.createCollection("raws",
             unit: {
                bsonType: "string"
         },
-            address: {
-               bsonType: "array",
-               required: [
-            "value",
-            "timestamp"
-          ],
-               properties: {
-                  value: {
-                     bsonType: [
-                "string",
-                "int",
-                "double"
-              ]
-            },
-                  timestamp: {
-                     bsonType: "string"
-            }
-          }
-        }
       }
     }
   }
