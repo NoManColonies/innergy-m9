@@ -1,0 +1,20 @@
+db.createCollection("sensors",
+{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [
+        "type",
+        "unit"
+      ],
+         properties: {
+            type: {
+               bsonType: "string"
+        },
+            unit: {
+               bsonType: "string"
+        },
+      }
+    }
+  }
+})

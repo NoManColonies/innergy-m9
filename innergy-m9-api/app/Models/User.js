@@ -40,9 +40,13 @@ class User extends Model {
     return this.hasMany('App/Models/Token', 'u_id', 'ref_u_id')
   }
 
-  raws () {
-    return this.hasMany('App/Models/Raw', 'u_id', 'ref_u_id')
+  sensors () {
+    return this.hasMany('App/Models/Sensor', 'u_id', 'ref_u_id')
   }
+
+  // raws () {
+  //   return this.hasMany('App/Models/Raw', 'u_id', 'ref_u_id')
+  // }
 }
 
 module.exports = User

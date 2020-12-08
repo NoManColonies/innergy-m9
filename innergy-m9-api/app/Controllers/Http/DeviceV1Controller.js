@@ -2,6 +2,7 @@
 
 const DeviceModel = use('App/Models/User')
 const RawModel = use('App/Models/Raw')
+const SensorModel = use('App/Models/Sensor')
 const { v4: uuidv4 } = require('uuid')
 
 const units = {
@@ -26,6 +27,14 @@ class DeviceV1Controller {
 
     const { dev_id } = params
 
+    const currentDate = new Date()
+
+    const dateBegin = new Date(
+      `${currentDate.getFullYear()}-${
+        currentDate.getUTCMonth() + 1
+      }-${currentDate.getDate()}`
+    )
+
     const device = await DeviceModel.where({ u_id: dev_id })
       .fetch()
       .then(query => query.first())
@@ -33,35 +42,32 @@ class DeviceV1Controller {
     const promises = data.map(async d => {
       const { value, type } = d
 
-      const raw = await RawModel.findBy({ ref_u_id: dev_id, type })
+      const sensor = await SensorModel.findBy({
+        ref_u_id: dev_id,
+        type,
+        timestamp: { $gte: dateBegin }
+      })
 
-      if (raw) {
-        const { valueProperties } = raw.toJSON()
-
-        raw.merge({
-          valueProperties: [
-            ...valueProperties,
-            { value, timestamp: new Date() }
-          ]
-        })
-
-        return raw.save()
+      if (sensor) {
+        return sensor.raws().create({ value })
       }
 
-      return device.raws().create({
+      const newSensor = await device.sensor().create({
+        s_id: uuidv4(),
         type,
-        valueProperties: [{ value, timestamp: new Date() }],
         unit: units[type]
       })
+
+      return newSensor.raws().create({ value })
     })
 
     await Promise.all(promises)
 
     const result = await DeviceModel.where({ u_id: dev_id })
-      .with('raws')
+      .with('sensors.raws')
       .fetch()
 
-    return response.status(200).send({
+    return response.status(201).send({
       status: 'success',
       result
     })
@@ -114,7 +120,7 @@ class DeviceV1Controller {
   }
 
   async index ({ response }) {
-    const devices = await DeviceModel.all()
+    const devices = await DeviceModel.where({ role: 'device' }).fetch()
 
     return response.status(200).send({
       status: 'success',
@@ -127,7 +133,16 @@ class DeviceV1Controller {
 
     const { dev_id } = params
 
+    const currentDate = new Date()
+
+    const dateBegin = new Date(
+      `${currentDate.getFullYear()}-${
+        currentDate.getUTCMonth() + 1
+      }-${currentDate.getDate()}`
+    )
+
     const result = await DeviceModel.where({ u_id: dev_id })
+      .with('sensors', builder => builder.where({ timestamp: { $gte: dateBegin } }))
       .with('raws')
       .fetch()
 
@@ -142,9 +157,7 @@ class DeviceV1Controller {
 
     const { dev_id, timestamp } = params
 
-    const result = await DeviceModel.where({ u_id: dev_id })
-      .with('raws', query => query.where('timestamp').eq(timestamp))
-      .fetch()
+    const result = await DeviceModel.where({ u_id: dev_id }).with('sensors.raws', builder => builder.where({ timestamp }))
 
     return response.status(200).send({
       status: 'success',
@@ -158,7 +171,8 @@ class DeviceV1Controller {
     const { dev_id, type } = params
 
     const result = await DeviceModel.where({ u_id: dev_id })
-      .with('raws', query => query.where('type').eq(type))
+      .with('sensors', builder => builder.where({ type }))
+      .with('raws')
       .fetch()
 
     return response.status(200).send({
@@ -173,7 +187,8 @@ class DeviceV1Controller {
     const { dev_id, type, timestamp } = params
 
     const result = await DeviceModel.where({ u_id: dev_id })
-      .with('raws', query => query.where({ type, timestamp }))
+      .with('sensors', builder => builder.where({ type }))
+      .with('raws', builder => builder.where({ timestamp }))
       .fetch()
 
     return response.status(200).send({

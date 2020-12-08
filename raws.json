@@ -4,35 +4,19 @@ db.createCollection("raws",
       $jsonSchema: {
          bsonType: "object",
          required: [
-        "type",
-        "unit",
-        "valueProperties"
+        "value",
+        "timestamp"
       ],
-         properties: {
-            type: {
-               bsonType: "string"
+      properties: {
+        value: {
+          bsonType: [
+            "string",
+            "int",
+            "double"
+          ]
         },
-            unit: {
-               bsonType: "string"
-        },
-            address: {
-               bsonType: "array",
-               required: [
-            "value",
-            "timestamp"
-          ],
-               properties: {
-                  value: {
-                     bsonType: [
-                "string",
-                "int",
-                "double"
-              ]
-            },
-                  timestamp: {
-                     bsonType: "string"
-            }
-          }
+        timestamp: {
+          bsonType: "string"
         }
       }
     }

@@ -9,3 +9,6 @@ innergy-m9-api/.env
 
 # The development sqlite file
 innergy-m9-api/database/*.sqlite
+
+# Vim session
+Session.vim
