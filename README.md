@@ -342,19 +342,7 @@ db.createCollection("raws",
          required: [
         "value",
         "timestamp"
-      ],
-      properties: {
-        value: {
-          bsonType: [
-            "string",
-            "int",
-            "double"
-          ]
-        },
-        timestamp: {
-          bsonType: "string"
-        }
-      }
+      ]
     }
   }
 })
