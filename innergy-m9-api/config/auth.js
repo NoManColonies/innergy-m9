@@ -3,6 +3,8 @@
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
+const ms = require('ms')
+
 module.exports = {
   /*
   |--------------------------------------------------------------------------
@@ -72,7 +74,7 @@ module.exports = {
     scheme: 'jwt',
     uid: 'auth_id',
     password: 'password',
-    options: { secret: Env.get('APP_KEY') }
+    options: { secret: Env.get('APP_KEY'), expiresIn: ms('7200') } // Token will expire in 2 hours
   },
 
   /*

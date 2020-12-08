@@ -14,7 +14,7 @@ badd +7 innergy-m9-api/app/Models/Token.js
 badd +49 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
-badd +33 innergy-m9-api/config/auth.js
+badd +6 innergy-m9-api/config/auth.js
 badd +14 innergy-m9-api/app/Controllers/Http/DeviceController.js
 badd +1 innergy-m9-api/utils/deviceUtils/deviceUtils.func.js
 badd +19 innergy-m9-api/config/database.js
@@ -26,7 +26,7 @@ badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
 badd +19 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
-badd +29 innergy-m9-api/package.json
+badd +1 innergy-m9-api/package.json
 badd +15 innergy-m9-api/app/Models/Raw.js
 badd +9 users.json
 badd +6 raws.json
@@ -36,7 +36,7 @@ badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
 badd +31 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/start/routes.js
+edit innergy-m9-api/package.json
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -58,30 +58,24 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-33
+1
 normal! zo
-33
+7
 normal! zo
-40
+11
 normal! zo
-43
+18
 normal! zo
-46
+34
 normal! zo
-51
+41
 normal! zo
-55
-normal! zo
-58
-normal! zo
-62
-normal! zo
-let s:l = 49 - ((46 * winheight(0) + 24) / 48)
+let s:l = 9 - ((8 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-49
-normal! 064|
+9
+normal! 05|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/config/auth.js") | buffer innergy-m9-api/config/auth.js | else | edit innergy-m9-api/config/auth.js | endif
@@ -93,22 +87,22 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-6
+8
 normal! zo
-30
+32
 normal! zo
-51
+53
 normal! zo
-68
+70
 normal! zo
-86
+88
 normal! zo
-let s:l = 7 - ((6 * winheight(0) + 24) / 48)
+let s:l = 77 - ((76 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 0
+77
+normal! 094|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
