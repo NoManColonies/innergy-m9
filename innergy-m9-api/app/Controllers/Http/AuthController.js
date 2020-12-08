@@ -7,7 +7,11 @@ const { v4: uuidv4 } = require('uuid')
 
 class AuthController {
   async store ({ request, response, auth }) {
-    const { username, password, email, key, qs } = request
+    const { qs } = request
+    const username = request.input('username')
+    const password = request.input('password')
+    const email = request.input('email')
+    const key = request.input('secretKey')
     const { session = 'jwt' } = qs
     const uuid = uuidv4()
 
@@ -15,15 +19,13 @@ class AuthController {
       u_id: uuid,
       auth_id: username,
       password,
+      email,
       role: key === Env.get('APP_KEY') ? 'admin' : 'user'
     })
 
     const token = session === 'jwt'
-      ? await auth
-        .authenticator('jwt')
-        .withRefreshToken()
-        .attempt(username, password)
-      : await auth.authenticator('api').attempt(username, password)
+      ? await auth.authenticator('jwt').withRefreshToken().generate(user)
+      : await auth.authenticator('api').generate(user)
 
     return response.status(201).send({
       status: 'success',

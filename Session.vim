@@ -11,10 +11,10 @@ badd +13 innergy-m9-api/database/migrations/1503250034279_user.js
 badd +9 innergy-m9-api/database/migrations/1503250034280_token.js
 badd +30 innergy-m9-api/app/Models/User.js
 badd +7 innergy-m9-api/app/Models/Token.js
-badd +51 innergy-m9-api/start/routes.js
+badd +49 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
-badd +6 innergy-m9-api/config/auth.js
+badd +33 innergy-m9-api/config/auth.js
 badd +14 innergy-m9-api/app/Controllers/Http/DeviceController.js
 badd +1 innergy-m9-api/utils/deviceUtils/deviceUtils.func.js
 badd +19 innergy-m9-api/config/database.js
@@ -23,7 +23,7 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +178 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +19 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +29 innergy-m9-api/package.json
@@ -31,12 +31,12 @@ badd +15 innergy-m9-api/app/Models/Raw.js
 badd +9 users.json
 badd +6 raws.json
 badd +3 innergy-m9-api/app/Models/Sensor.js
-badd +39 innergy-m9-api/app/Middleware/Auth.js
+badd +42 innergy-m9-api/app/Middleware/Auth.js
 badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
-badd +7 innergy-m9-api/app/Controllers/Http/AuthController.js
+badd +31 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/config/auth.js
+edit innergy-m9-api/start/routes.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -47,36 +47,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
+exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
 argglobal
-setlocal fdm=syntax
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-6
-normal! zo
-30
-normal! zo
-51
-normal! zo
-68
-normal! zo
-86
-normal! zo
-let s:l = 31 - ((27 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-31
-normal! 019|
-wincmd w
-argglobal
-if bufexists("innergy-m9-api/start/routes.js") | buffer innergy-m9-api/start/routes.js | else | edit innergy-m9-api/start/routes.js | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -110,8 +83,36 @@ normal! zt
 49
 normal! 064|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
+argglobal
+if bufexists("innergy-m9-api/config/auth.js") | buffer innergy-m9-api/config/auth.js | else | edit innergy-m9-api/config/auth.js | endif
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+6
+normal! zo
+30
+normal! zo
+51
+normal! zo
+68
+normal! zo
+86
+normal! zo
+let s:l = 7 - ((6 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+7
+normal! 0
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

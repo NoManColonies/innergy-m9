@@ -37,10 +37,7 @@ class Auth {
     const { role, u_id } = await auth
       .authenticator(loggedInMethod)
       .getUser()
-      .then(query => query
-        .with('user')
-        .fetch()
-        .then(subQuery => subQuery.toJSON()))
+      .then(query => query.toJSON())
 
     if (properties.length && !properties.find(filter => role === filter)) {
       response.status(403).send({
