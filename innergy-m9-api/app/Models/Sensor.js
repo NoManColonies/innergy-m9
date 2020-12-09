@@ -13,7 +13,7 @@ class Sensor extends Model {
   }
 
   static get createdAtColumn () {
-    return 'timestamp_date'
+    return null
   }
 
   user () {

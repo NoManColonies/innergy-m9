@@ -61,7 +61,7 @@ class DeviceV1Controller {
       let sensor = await SensorModel.findBy({
         ref_u_id: u_id,
         type,
-        timestamp_date: { $gte: dateBegin }
+        timestamp_date: dateBegin
       })
 
       if (sensor) {
@@ -71,7 +71,8 @@ class DeviceV1Controller {
       sensor = await device.sensors().create({
         s_id: uuidv4(),
         type,
-        unit: units[type]
+        unit: units[type],
+        timestamp_date: dateBegin
       })
 
       return sensor.raws().create({ value })
@@ -81,7 +82,7 @@ class DeviceV1Controller {
 
     const result = await DeviceModel.where({ u_id })
       .with('sensors.raws')
-      .fetch()
+      .first()
 
     return response.status(201).send({
       status: 'success',
@@ -95,7 +96,14 @@ class DeviceV1Controller {
     const devices = await DeviceModel.where(
       role === 'admin' ? { role: 'device' } : { role: 'device', owner: u_id }
     )
-      .setHidden(['role'])
+      .setHidden([
+        'role',
+        'created_at',
+        'updated_at',
+        'auth_id',
+        'owner',
+        '_id'
+      ])
       .fetch()
 
     return response.status(200).send({
@@ -120,8 +128,8 @@ class DeviceV1Controller {
     const result = await DeviceModel.where(
       role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
     )
-      .with('sensors', builder => builder.where({ timestamp: { $gte: dateBegin } }).with('raws'))
-      .fetch()
+      .with('sensors', builder => builder.where({ timestamp_date: { $gte: dateBegin } }).with('raws'))
+      .first()
 
     return response.status(200).send({
       status: 'success',
@@ -132,13 +140,85 @@ class DeviceV1Controller {
   async showWithTimestamp ({ request, response }) {
     const { params, u_id, role } = request
 
+    const currentDate = new Date()
+
+    const dateBegin = new Date(
+      `${currentDate.getFullYear()}-${
+        currentDate.getUTCMonth() + 1
+      }-${currentDate.getDate()}`
+    )
+
     const { dev_id, timestamp } = params
 
-    const result = await DeviceModel.where(
-      role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
-    )
-      .with('sensors.raws', builder => builder.where({ timestamp }))
-      .fetch()
+    let result
+
+    if (timestamp.toLowerCase() === 'latest') {
+      result = await DeviceModel.where(
+        role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+      )
+        .with('sensors', builder => builder
+          .where({ timestamp_date: dateBegin })
+          .with('raws', subBuilder => subBuilder.sort('-timestamp')))
+        .first()
+        .then(query => query.toJSON())
+
+      let count
+      result.sensors = result.sensors.map(sensor => {
+        count = 0
+        const [raw] = sensor.raws.filter(filter => {
+          count += 1
+          return count === 1
+        })
+        sensor.raws = undefined
+        sensor.raw = raw
+        return sensor
+      })
+    } else if (timestamp.indexOf('~') === -1) {
+      const filter = new Date(timestamp)
+      result = await DeviceModel.where(
+        role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+      )
+        .with('sensors', builder => builder
+          .where({ timestamp_date: new Date(filter.setHours(24)) })
+          .with('raws'))
+        .first()
+    } else {
+      const timestamps = timestamp.split('~')
+      const filters = [new Date(timestamps[0]), new Date(timestamps[1])]
+
+      console.log(
+        new Date(
+          `${filters[0].getFullYear()}-${
+            filters[0].getUTCMonth() + 1
+          }-${filters[0].getDate()}`
+        ),
+        new Date(
+          `${filters[1].getFullYear()}-${
+            filters[1].getUTCMonth() + 1
+          }-${filters[1].getDate()}`
+        )
+      )
+      result = await DeviceModel.where(
+        role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
+      )
+        .with('sensors', builder => builder
+          .where({
+            timestamp_date: {
+              $gte: new Date(
+                `${filters[0].getFullYear()}-${
+                  filters[0].getUTCMonth() + 1
+                }-${filters[0].getDate()}`
+              ),
+              $lte: new Date(
+                `${filters[1].getFullYear()}-${
+                  filters[1].getUTCMonth() + 1
+                }-${filters[1].getDate()}`
+              )
+            }
+          })
+          .with('raws', subBuilder => subBuilder.where({ timestamp: { $gte: timestamps[0], $lte: timestamps[1] } })))
+        .first()
+    }
 
     return response.status(200).send({
       status: 'success',
@@ -155,7 +235,7 @@ class DeviceV1Controller {
       role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
     )
       .with('sensors', builder => builder.where({ type }).with('raws'))
-      .fetch()
+      .first()
 
     return response.status(200).send({
       status: 'success',
@@ -174,7 +254,7 @@ class DeviceV1Controller {
       .with('sensors', builder => builder
         .where({ type })
         .with('raws', subBuilder => subBuilder.where({ timestamp })))
-      .fetch()
+      .first()
 
     return response.status(200).send({
       status: 'success',
