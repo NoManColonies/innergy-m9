@@ -18,17 +18,18 @@ const Route = use('Route')
 
 Route.get('/', () => ({ greeting: 'Welcome to innergy M9 project API!' }))
 
+// /!\ Deprecated route /!\
 Route.group(() => {
-  Route.get('/', 'DeviceController.index').middleware('auth:user,admin')
-  Route.get('/:dev_id', 'DeviceController.show').middleware('auth:user,admin')
-  Route.get('/:dev_id/:filter', 'DeviceController.showWithFilter').middleware(
-    'auth:user,admin'
-  )
+  Route.get('/', 'DeviceController.index')
+  Route.get('/:dev_id', 'DeviceController.show')
+  Route.get('/:dev_id/:filter', 'DeviceController.showWithFilter')
   Route.get(
     '/:dev_id/:filter/:sub_filter',
     'DeviceController.showWithSubFilter'
-  ).middleware('auth:user,admin')
-}).prefix('api/v0')
+  )
+})
+  .prefix('api/v0')
+  .middleware('auth:admin')
 
 Route.group(() => {
   Route.post('/device/create', 'DeviceV1Controller.registerDevice').middleware(

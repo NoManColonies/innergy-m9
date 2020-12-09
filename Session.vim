@@ -11,7 +11,7 @@ badd +13 innergy-m9-api/database/migrations/1503250034279_user.js
 badd +9 innergy-m9-api/database/migrations/1503250034280_token.js
 badd +44 innergy-m9-api/app/Models/User.js
 badd +18 innergy-m9-api/app/Models/Token.js
-badd +56 innergy-m9-api/start/routes.js
+badd +21 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
 badd +91 innergy-m9-api/config/auth.js
@@ -23,20 +23,20 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +189 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +133 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +9 innergy-m9-api/package.json
 badd +15 innergy-m9-api/app/Models/Raw.js
 badd +9 users.json
 badd +6 raws.json
-badd +1 innergy-m9-api/app/Models/Sensor.js
+badd +13 innergy-m9-api/app/Models/Sensor.js
 badd +41 innergy-m9-api/app/Middleware/Auth.js
 badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
 badd +44 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/app/Models/Sensor.js
+edit innergy-m9-api/start/routes.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -58,18 +58,40 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-6
+22
 normal! zo
-11
+22
 normal! zo
-15
+26
 normal! zo
-let s:l = 13 - ((12 * winheight(0) + 24) / 48)
+34
+normal! zo
+34
+normal! zo
+35
+normal! zo
+38
+normal! zo
+45
+normal! zo
+48
+normal! zo
+51
+normal! zo
+56
+normal! zo
+60
+normal! zo
+63
+normal! zo
+67
+normal! zo
+let s:l = 34 - ((33 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 03|
+34
+normal! 019|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js") | buffer innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | else | edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | endif
@@ -81,26 +103,20 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-13
+127
 normal! zo
-140
+128
 normal! zo
-155
+128
 normal! zo
-204
+131
 normal! zo
-205
-normal! zo
-205
-normal! zo
-206
-normal! zo
-let s:l = 207 - ((166 * winheight(0) + 24) / 48)
+let s:l = 140 - ((139 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-207
-normal! 0
+140
+normal! 013|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
