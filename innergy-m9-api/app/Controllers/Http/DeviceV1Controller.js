@@ -171,17 +171,7 @@ class DeviceV1Controller {
 
     feedNewData({ data, device, timestamp_date, u_id })
 
-    // FIXME: Debug only! remove before production.
-    const result = await DeviceModel.where({ u_id })
-      .with('sensors', builder => builder
-        .with('raws', subBuilder => subBuilder.sort('-timestamp'))
-        .sort('-timestamp_date'))
-      .first()
-
-    return response.status(201).send({
-      status: 'success',
-      result
-    })
+    return response.status(201).send({ status: 'success' })
   }
 
   async index ({ response, request }) {

@@ -11,7 +11,7 @@ badd +13 innergy-m9-api/database/migrations/1503250034279_user.js
 badd +9 innergy-m9-api/database/migrations/1503250034280_token.js
 badd +44 innergy-m9-api/app/Models/User.js
 badd +18 innergy-m9-api/app/Models/Token.js
-badd +21 innergy-m9-api/start/routes.js
+badd +1 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
 badd +91 innergy-m9-api/config/auth.js
@@ -23,7 +23,7 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +133 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +216 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +9 innergy-m9-api/package.json
@@ -103,22 +103,19 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-127
+145
 normal! zo
-128
+146
 normal! zo
-128
+163
 normal! zo
-131
-normal! zo
-let s:l = 140 - ((139 * winheight(0) + 24) / 49)
+let s:l = 177 - ((175 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-140
-normal! 013|
+177
+normal! 01|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
 exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
 tabnext 1
