@@ -90,7 +90,7 @@ module.exports = {
     model: 'App/Models/User',
     token: 'App/Models/Token',
     scheme: 'api',
-    uid: 'username',
+    uid: 'auth_id',
     password: 'password'
   }
 }

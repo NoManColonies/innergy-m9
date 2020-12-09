@@ -11,7 +11,7 @@ badd +13 innergy-m9-api/database/migrations/1503250034279_user.js
 badd +9 innergy-m9-api/database/migrations/1503250034280_token.js
 badd +44 innergy-m9-api/app/Models/User.js
 badd +18 innergy-m9-api/app/Models/Token.js
-badd +1 innergy-m9-api/start/routes.js
+badd +41 innergy-m9-api/start/routes.js
 badd +38 innergy-m9-api/start/kernel.js
 badd +6 innergy-m9-api/config/hash.js
 badd +77 innergy-m9-api/config/auth.js
@@ -23,7 +23,7 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +62 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +5 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +9 innergy-m9-api/package.json
@@ -36,7 +36,7 @@ badd +5 innergy-m9-api/utils/authUtils/authUtils.func.js
 badd +147 innergy-m9-api/app/Controllers/Http/AuthController.js
 argglobal
 %argdel
-edit innergy-m9-api/start/routes.js
+edit innergy-m9-api/config/auth.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -58,21 +58,21 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-33
+8
 normal! zo
-33
+70
 normal! zo
-34
+88
 normal! zo
-let s:l = 50 - ((47 * winheight(0) + 14) / 28)
+let s:l = 93 - ((20 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-50
-normal! 01|
+93
+normal! 017|
 wincmd w
 argglobal
-if bufexists("innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js") | buffer innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | else | edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | endif
+if bufexists("innergy-m9-api/app/Controllers/Http/AuthController.js") | buffer innergy-m9-api/app/Controllers/Http/AuthController.js | else | edit innergy-m9-api/app/Controllers/Http/AuthController.js | endif
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -81,32 +81,52 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-13
+8
+normal! zo
+37
 normal! zo
 41
 normal! zo
-48
+47
 normal! zo
-58
+47
 normal! zo
-58
+52
 normal! zo
-61
+52
 normal! zo
-61
+59
 normal! zo
-67
+63
+normal! zo
+66
+normal! zo
+66
 normal! zo
 71
 normal! zo
 71
 normal! zo
-let s:l = 62 - ((15 * winheight(0) + 14) / 28)
+99
+normal! zo
+102
+normal! zo
+105
+normal! zo
+113
+normal! zo
+113
+normal! zo
+120
+normal! zo
+121
+normal! zo
+let s:l = 47 - ((8 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-62
-normal! 016|
+47
+normal! 010|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 118 + 118) / 236)
 exe 'vert 2resize ' . ((&columns * 117 + 118) / 236)
