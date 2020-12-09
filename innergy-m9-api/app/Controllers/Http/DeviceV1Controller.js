@@ -125,20 +125,22 @@ const createNewDevice = ({ response, auth, role, u_id }) => {
 }
 
 const feedNewData = ({ data, device, timestamp_date, u_id }) => {
-  data.map(d => {
+  data.map(async d => {
     const { value, type } = d
 
-    return (
-      device
-        .sensors()
-        .where({ ref_u_id: u_id, type, timestamp_date })
-        .first()
-        .then(sensor => sensor.raws().create({ value }))
-      || device
-        .sensors()
-        .create({ s_id: uuidv4(), type, unit: units[type], timestamp_date })
-        .then(sensor => sensor.raws().create({ value }))
-    )
+    const sensor = await device
+      .sensors()
+      .where({ ref_u_id: u_id, type, timestamp_date })
+      .first()
+
+    if (sensor) {
+      return sensor.raws().create({ value })
+    }
+
+    return device
+      .sensors()
+      .create({ s_id: uuidv4(), type, unit: units[type], timestamp_date })
+      .then(newSensor => newSensor.raws().create({ value }))
   })
 }
 

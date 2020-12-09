@@ -1830,3 +1830,524 @@
 2020-12-10 01:57:22 root INFO [9c163de6-96fd-4fe8-8021-0ba2ebd61d51] Sync of 0 plugins took: 366.9 ms
 2020-12-10 01:57:22 root INFO [9c163de6-96fd-4fe8-8021-0ba2ebd61d51] Load contributions of 0 plugins took: 0.0 ms
 2020-12-10 01:57:22 root INFO [9c163de6-96fd-4fe8-8021-0ba2ebd61d51] Start of 0 plugins took: 12.8 ms
+2020-12-10 02:05:03 discovery INFO Initialized attached boards and available ports. - Discovered boards: [] and available ports: [{"protocol":"serial","address":"/dev/ttyUSB3"}]
+2020-12-10 02:05:03 root INFO Attached boards and available ports changed: 
+2020-12-10 02:05:03 root INFO Board config changed: 
+2020-12-10 02:08:24 root INFO >>> Disposing boards service...
+2020-12-10 02:08:24 root INFO <<< Disposed boards service.
+2020-12-10 02:08:24 monitor-service INFO >>> Disposing monitor service...
+2020-12-10 02:08:24 monitor-service INFO <<< Disposed monitor service.
+2020-12-10 02:08:24 root INFO >>> Disposing library service...
+2020-12-10 02:08:24 root INFO <<< Disposed library service.
+2020-12-10 02:08:24 root INFO >>> Disposing boards service...
+2020-12-10 02:08:24 root INFO <<< Disposed boards service.
+2020-12-10 02:08:31 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: []
+2020-12-10 02:08:31 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: []
+2020-12-10 02:08:33 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: [{"protocol":"serial","address":"/dev/ttyUSB0"}]
+2020-12-10 02:08:34 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: [{"protocol":"serial","address":"/dev/ttyUSB0"}]
+2020-12-10 02:08:37 root INFO Starting language server /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-language-server -clangd /usr/bin/clangd -cli /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli
+2020-12-10 02:08:50 root INFO >>> Disposing boards service...
+2020-12-10 02:08:50 root INFO <<< Disposed boards service.
+2020-12-10 02:08:50 monitor-service INFO >>> Disposing monitor service...
+2020-12-10 02:08:50 monitor-service INFO <<< Disposed monitor service.
+2020-12-10 02:08:50 root INFO >>> Disposing library service...
+2020-12-10 02:08:50 root INFO <<< Disposed library service.
+2020-12-10 02:08:53 root WARN please install @theia/electron@1.5.0-next.09ef844b as a runtime dependency
+2020-12-10 02:08:53 root INFO Configuration directory URI: 'file:///home/geng/.theia'
+2020-12-10 02:08:53 root INFO Configuring to accept webviews on '.+.webview..+' hostname.
+2020-12-10 02:08:53 root WARN The directory referenced by local-dir:/home/geng/.arduinoProIDE/plugins does not exist.
+2020-12-10 02:08:53 root WARN The directory referenced by local-dir:/home/geng/.arduinoProIDE/extensions does not exist.
+2020-12-10 02:08:53 root WARN The directory referenced by local-dir:/home/geng/.arduinoProIDE/plugins does not exist.
+2020-12-10 02:08:53 root INFO Theia app listening on http://localhost:42875.
+2020-12-10 02:08:53 config INFO Started watching the Arduino CLI configuration: '/home/geng/.arduinoProIDE/arduino-cli.yaml'.
+2020-12-10 02:08:53 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2020-12-10 02:08:53 root INFO Resolved "vscode-builtin-cpp" to a VS Code extension "cpp@1.44.2" with engines:
+2020-12-10 02:08:53 root INFO Deploying backend plugin "cpp@1.44.2" from "/opt/arduino-pro-ide/resources/app/plugins/vscode-builtin-cpp/extension"
+2020-12-10 02:08:53 root INFO Deploy plugins list took: 27.9 ms
+2020-12-10 02:08:53 daemon INFO Starting daemon from /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli...
+2020-12-10 02:08:53 daemon INFO Using config file: /home/geng/.arduinoProIDE/arduino-cli.yaml
+2020-12-10 02:08:53 daemon INFO arduino-cli version 0.13.0
+2020-12-10 02:08:53 daemon INFO Starting daemon on TCP address 127.0.0.1:50051
+2020-12-10 02:08:53 daemon INFO Daemon is now listening on 127.0.0.1:50051...
+2020-12-10 02:08:53 daemon INFO Daemon is running.
+2020-12-10 02:08:54 root INFO Git askpass helper is listening on http://127.0.0.1:35557.
+2020-12-10 02:08:54 root INFO Using Git [2.29.2] from the PATH. (/usr/bin/git)
+2020-12-10 02:08:54 daemon INFO Checking signature [index: /home/geng/.arduino15/package_index.json, signaturefile: /home/geng/.arduino15/package_index.json.sig, trusted: true]
+2020-12-10 02:08:54 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp32_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp32_index.json, signaturefile: /home/geng/.arduino15/package_esp32_index.json.sig]
+2020-12-10 02:08:54 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp8266com_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp8266com_index.json, signaturefile: /home/geng/.arduino15/package_esp8266com_index.json.sig]
+2020-12-10 02:08:54 daemon INFO Checking if CLI is Bundled into the IDE
+2020-12-10 02:08:54 daemon INFO Loading hardware from: /home/geng/.arduino15/packages
+2020-12-10 02:08:54 daemon INFO Loading package arduino from: /home/geng/.arduino15/packages/arduino/hardware
+2020-12-10 02:08:54 daemon INFO Loaded platform [platform: {ID:"arduino:avr",Installed:"1.8.3",Latest:"1.8.3",Name:"Arduino AVR Boards"}]
+2020-12-10 02:08:54 daemon INFO Loaded platform [platform: {ID:"arduino:mbed",Installed:"1.3.0",Latest:"1.3.0",Name:"Arduino mbed-enabled Boards"}]
+2020-12-10 02:08:54 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:08:54 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:08:54 daemon INFO Loading package builtin from: /home/geng/.arduino15/packages/builtin
+2020-12-10 02:08:54 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:08:54 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 5.8-arduino11]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 1.0.0]
+2020-12-10 02:08:54 daemon INFO Loading package esp32 from: /home/geng/.arduino15/packages/esp32/hardware
+2020-12-10 02:08:54 daemon INFO Loaded platform [platform: {ID:"esp32:esp32",Installed:"1.0.4",Latest:"1.0.4",Name:"esp32"}]
+2020-12-10 02:08:54 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:08:54 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:54 daemon INFO Loading package esp8266 from: /home/geng/.arduino15/packages/esp8266/hardware
+2020-12-10 02:08:54 daemon INFO Loaded platform [platform: {ID:"esp8266:esp8266",Installed:"2.7.4",Latest:"2.7.4",Name:"esp8266"}]
+2020-12-10 02:08:54 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:08:54 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:08:54 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:54 daemon INFO Loading hardware from: /home/geng/Arduino/hardware
+2020-12-10 02:08:54 daemon INFO Loading package espressif from: /home/geng/Arduino/hardware/espressif
+2020-12-10 02:08:54 daemon INFO Loaded platform [platform: {ID:"espressif:esp32"}]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/mbed/1.3.0/libraries, location: platform]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/avr/1.8.3/libraries, location: platform]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/hardware/espressif/esp32/libraries, location: platform]
+2020-12-10 02:08:54 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/libraries, location: platform]
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/body-parser
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/cookie
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/express
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/fs-extra
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/lodash.debounce
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/lodash.throttle
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/react
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/react-dom
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/react-virtualized
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/route-parser
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/ws
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/yargs
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/monaco
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/editor
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/rimraf
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/tar-fs
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/touch
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/uuid
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/navigator
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/p-queue
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/preferences
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/electron
+2020-12-10 02:08:54 root WARN Failed to resolve module: @theia/messages
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/diff
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/connect
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/mime
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/serve-static
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/request
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/dateformat
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/deepmerge
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/glob
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/google-protobuf
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/js-yaml
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/ncp
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/ps-tree
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/react-select
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/sinon
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/temp
+2020-12-10 02:08:54 root WARN Failed to resolve module: @types/which
+2020-12-10 02:08:54 root WARN Failed to resolve module: temp
+2020-12-10 02:08:54 root INFO The CLI daemon process has started.
+2020-12-10 02:08:54 root WARN Frontend keybindings.onStart is slow, took: 196.4 ms
+2020-12-10 02:08:54 root INFO [nsfw-watcher: 26494] Started watching: /home/geng/Arduino/BasicHttpClient
+2020-12-10 02:08:54 root INFO [nsfw-watcher: 26494] Started watching: /home/geng/Arduino/BasicHttpClient
+2020-12-10 02:08:55 daemon INFO Updating index [url: https://downloads.arduino.cc/packages/package_index.json]
+2020-12-10 02:08:55 root INFO Changed application state from 'init' to 'started_contributions'.
+2020-12-10 02:08:55 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2020-12-10 02:08:55 root INFO >>> Restoring the layout state...
+2020-12-10 02:08:55 root INFO [nsfw-watcher: 26494] Started watching: /home/geng/.arduinoProIDE
+2020-12-10 02:08:55 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Sync of 1 plugin took: 356.4 ms
+2020-12-10 02:08:55 root INFO [nsfw-watcher: 26494] Started watching: /home/geng/Arduino/BasicHttpClient/BasicHttpClient.ino
+2020-12-10 02:08:55 root INFO [hosted-plugin: 26554] PLUGIN_HOST(26554) starting instance
+2020-12-10 02:08:55 discovery INFO Initialized attached boards and available ports. - Discovered boards: [] and available ports: []
+2020-12-10 02:08:55 daemon INFO Checking signature [error: opening signature file: open /tmp/174652222.sig: no such file or directory, index: /tmp/174652222, signaturefile: /tmp/174652222.sig]
+2020-12-10 02:08:55 daemon INFO Updating index [url: https://dl.espressif.com/dl/package_esp32_index.json]
+2020-12-10 02:08:55 root INFO Attached boards and available ports changed: 
+2020-12-10 02:08:55 root INFO Starting language server /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-language-server -clangd /usr/bin/clangd -cli /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli
+2020-12-10 02:08:55 root INFO <<< The layout has been successfully restored.
+2020-12-10 02:08:55 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2020-12-10 02:08:55 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a][vscode.cpp]: Loaded contributions.
+2020-12-10 02:08:55 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Load contributions of 1 plugin took: 3.1 ms
+2020-12-10 02:08:56 root WARN Error: 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+    at TextmateRegistry.push../node_modules/@theia/monaco/lib/browser/textmate/textmate-registry.js.TextmateRegistry.mapLanguageIdToTextmateGrammar (file:///opt/arduino-pro-ide/resources/app/lib/36.bundle.js:1408:26)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8130:125
+    at pushContribution (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:7988:32)
+    at _loop_14 (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8130:21)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8139:25
+2020-12-10 02:08:56 root WARN Error: a registered grammar configuration for 'cpp' language is overridden
+    at TextmateRegistry.push../node_modules/@theia/monaco/lib/browser/textmate/textmate-registry.js.TextmateRegistry.registerGrammarConfiguration (file:///opt/arduino-pro-ide/resources/app/lib/36.bundle.js:1446:26)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8131:133
+    at pushContribution (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:7988:32)
+    at _loop_14 (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8131:21)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8139:25
+2020-12-10 02:08:56 root INFO [hosted-plugin: 26554] PLUGIN_HOST(26554): PluginManagerExtImpl/init()
+2020-12-10 02:08:56 root INFO [hosted-plugin: 26554] PLUGIN_HOST(26554): initializing(cpp@1.44.2 with /opt/arduino-pro-ide/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init.js)
+2020-12-10 02:08:56 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a][vscode.cpp]: Started plugin.
+2020-12-10 02:08:56 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Start of 1 plugin took: 292.8 ms
+2020-12-10 02:08:56 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Sync of 0 plugins took: 2.2 ms
+2020-12-10 02:08:56 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Load contributions of 0 plugins took: 0.0 ms
+2020-12-10 02:08:56 root INFO [3d384e94-1445-4e79-b46b-4424a50fbd7a] Start of 0 plugins took: 10.1 ms
+2020-12-10 02:08:56 daemon INFO Checking signature [error: opening signature file: open /tmp/752714528.sig: no such file or directory, index: /tmp/752714528, signaturefile: /tmp/752714528.sig]
+2020-12-10 02:08:56 daemon INFO Updating index [url: https://arduino.esp8266.com/stable/package_esp8266com_index.json]
+2020-12-10 02:08:56 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2020-12-10 02:08:57 daemon INFO Checking signature [error: opening signature file: open /tmp/023436799.sig: no such file or directory, index: /tmp/023436799, signaturefile: /tmp/023436799.sig]
+2020-12-10 02:08:57 daemon INFO Checking signature [index: /home/geng/.arduino15/package_index.json, signaturefile: /home/geng/.arduino15/package_index.json.sig, trusted: true]
+2020-12-10 02:08:57 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp32_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp32_index.json, signaturefile: /home/geng/.arduino15/package_esp32_index.json.sig]
+2020-12-10 02:08:57 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp8266com_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp8266com_index.json, signaturefile: /home/geng/.arduino15/package_esp8266com_index.json.sig]
+2020-12-10 02:08:57 daemon INFO Loading hardware from: /home/geng/.arduino15/packages
+2020-12-10 02:08:57 daemon INFO Loading package arduino from: /home/geng/.arduino15/packages/arduino/hardware
+2020-12-10 02:08:57 daemon INFO Loaded platform [platform: {ID:"arduino:avr",Installed:"1.8.3",Latest:"1.8.3",Name:"Arduino AVR Boards"}]
+2020-12-10 02:08:57 daemon INFO Loaded platform [platform: {ID:"arduino:mbed",Installed:"1.3.0",Latest:"1.3.0",Name:"Arduino mbed-enabled Boards"}]
+2020-12-10 02:08:57 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:08:57 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:08:57 daemon INFO Loading package builtin from: /home/geng/.arduino15/packages/builtin
+2020-12-10 02:08:57 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:08:57 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 5.8-arduino11]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 1.0.0]
+2020-12-10 02:08:57 daemon INFO Loading package esp32 from: /home/geng/.arduino15/packages/esp32/hardware
+2020-12-10 02:08:57 daemon INFO Loaded platform [platform: {ID:"esp32:esp32",Installed:"1.0.4",Latest:"1.0.4",Name:"esp32"}]
+2020-12-10 02:08:57 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:08:57 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:08:57 daemon INFO Loading package esp8266 from: /home/geng/.arduino15/packages/esp8266/hardware
+2020-12-10 02:08:57 daemon INFO Loaded platform [platform: {ID:"esp8266:esp8266",Installed:"2.7.4",Latest:"2.7.4",Name:"esp8266"}]
+2020-12-10 02:08:57 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:08:57 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:08:57 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:08:57 daemon INFO Loading hardware from: /home/geng/Arduino/hardware
+2020-12-10 02:08:57 daemon INFO Loading package espressif from: /home/geng/Arduino/hardware/espressif
+2020-12-10 02:08:57 daemon INFO Loaded platform [platform: {ID:"espressif:esp32"}]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/libraries, location: platform]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/hardware/espressif/esp32/libraries, location: platform]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/mbed/1.3.0/libraries, location: platform]
+2020-12-10 02:08:57 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/avr/1.8.3/libraries, location: platform]
+2020-12-10 02:08:57 daemon INFO Updating libraries index
+2020-12-10 02:09:01 daemon INFO Checking signature [index: /home/geng/.arduino15/package_index.json, signaturefile: /home/geng/.arduino15/package_index.json.sig, trusted: true]
+2020-12-10 02:09:01 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp32_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp32_index.json, signaturefile: /home/geng/.arduino15/package_esp32_index.json.sig]
+2020-12-10 02:09:01 daemon INFO Checking signature [error: opening signature file: open /home/geng/.arduino15/package_esp8266com_index.json.sig: no such file or directory, index: /home/geng/.arduino15/package_esp8266com_index.json, signaturefile: /home/geng/.arduino15/package_esp8266com_index.json.sig]
+2020-12-10 02:09:01 daemon INFO Loading hardware from: /home/geng/.arduino15/packages
+2020-12-10 02:09:01 daemon INFO Loading package arduino from: /home/geng/.arduino15/packages/arduino/hardware
+2020-12-10 02:09:01 daemon INFO Loaded platform [platform: {ID:"arduino:avr",Installed:"1.8.3",Latest:"1.8.3",Name:"Arduino AVR Boards"}]
+2020-12-10 02:09:01 daemon INFO Loaded platform [platform: {ID:"arduino:mbed",Installed:"1.3.0",Latest:"1.3.0",Name:"Arduino mbed-enabled Boards"}]
+2020-12-10 02:09:01 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:09:01 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/arduino/tools
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:09:01 daemon INFO Loading package builtin from: /home/geng/.arduino15/packages/builtin
+2020-12-10 02:09:01 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:09:01 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/builtin/tools
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 5.8-arduino11]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 1.0.0]
+2020-12-10 02:09:01 daemon INFO Loading package esp32 from: /home/geng/.arduino15/packages/esp32/hardware
+2020-12-10 02:09:01 daemon INFO Loaded platform [platform: {ID:"esp32:esp32",Installed:"1.0.4",Latest:"1.0.4",Name:"esp32"}]
+2020-12-10 02:09:01 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:09:01 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp32/tools
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:09:01 daemon INFO Loading package esp8266 from: /home/geng/.arduino15/packages/esp8266/hardware
+2020-12-10 02:09:01 daemon INFO Loaded platform [platform: {ID:"esp8266:esp8266",Installed:"2.7.4",Latest:"2.7.4",Name:"esp8266"}]
+2020-12-10 02:09:01 daemon INFO Checking existence of 'tools' path: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:09:01 daemon INFO Loading tools from dir: /home/geng/.arduino15/packages/esp8266/tools
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:09:01 daemon INFO Loaded tool [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:09:01 daemon INFO Loading hardware from: /home/geng/Arduino/hardware
+2020-12-10 02:09:01 daemon INFO Loading package espressif from: /home/geng/Arduino/hardware/espressif
+2020-12-10 02:09:01 daemon INFO Loaded platform [platform: {ID:"espressif:esp32"}]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/mbed/1.3.0/libraries, location: platform]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/arduino/hardware/avr/1.8.3/libraries, location: platform]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/hardware/espressif/esp32/libraries, location: platform]
+2020-12-10 02:09:01 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp8266/hardware/esp8266/2.7.4/libraries, location: platform]
+2020-12-10 02:09:02 root INFO Index has been updated.
+2020-12-10 02:09:03 root INFO Starting language server /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-language-server -clangd /usr/bin/clangd -cli /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli
+2020-12-10 02:09:03 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: [{"protocol":"serial","address":"/dev/ttyUSB0"}]
+2020-12-10 02:09:03 root INFO Attached boards and available ports changed: 
+2020-12-10 02:09:05 root INFO Board config changed: 
+2020-12-10 02:09:10 root INFO Board config changed: 
+2020-12-10 02:09:14 monitor-service INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:09:14 monitor-service INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:09:14 root INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:09:14 root INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:09:47 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:09:47 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:09:47 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:09:47 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:09:47 root INFO >>> Disposing existing monitor connection...
+2020-12-10 02:09:47 root INFO <<< Disposed connection. Was: ESP32 Dev Module [esp32:esp32:esp32] /dev/ttyUSB0
+2020-12-10 02:09:47 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:09:47 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:09:47 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:09:47 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:09:47 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:09:47 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:09:47 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:09:47 daemon INFO Adding libraries dir [dir: /usr/share/arduino/libraries, location: ide]
+2020-12-10 02:09:47 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:09:47 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:09:47 daemon INFO Resolving include ArduinoJson.h for arch esp32
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: ArduinoJson, prio: 5DF]
+2020-12-10 02:09:47 daemon INFO   discarded [lib: CMMC_MQTT_Connector, prio: 3F5]
+2020-12-10 02:09:47 daemon INFO Resolving include Adafruit_Si7021.h for arch esp32
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: Adafruit_Si7021_Library, prio: 517]
+2020-12-10 02:09:47 daemon INFO Resolving include Wire.h for arch esp32
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: ds3231FS, prio: 3EB]
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: Wire, prio: 5E8]
+2020-12-10 02:09:47 daemon INFO   discarded [lib: DS3231-1.0.2, prio: 3EB]
+2020-12-10 02:09:47 daemon INFO   discarded [lib: DS3231, prio: 3EB]
+2020-12-10 02:09:47 daemon INFO Resolving include WiFi.h for arch esp32
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: WiFi, prio: 5E8]
+2020-12-10 02:09:47 daemon INFO Resolving include HTTPClient.h for arch esp32
+2020-12-10 02:09:47 daemon INFO   found better lib [lib: HTTPClient, prio: 5E8]
+2020-12-10 02:09:48 daemon INFO Resolving include WiFiClientSecure.h for arch esp32
+2020-12-10 02:09:48 daemon INFO   found better lib [lib: WiFiClientSecure, prio: 5E8]
+2020-12-10 02:09:51 root ERROR Request upload failed with error: 2 UNKNOWN: exit status 1
+2020-12-10 02:09:51 monitor-service INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:09:51 monitor-service INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:09:51 root INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:09:51 root INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:10:30 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:10:30 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:10:30 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:10:30 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:10:30 root INFO >>> Disposing existing monitor connection...
+2020-12-10 02:10:30 root INFO <<< Disposed connection. Was: ESP32 Dev Module [esp32:esp32:esp32] /dev/ttyUSB0
+2020-12-10 02:10:30 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:10:30 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:10:30 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:10:30 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:10:30 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:10:30 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:10:30 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:10:30 daemon INFO Adding libraries dir [dir: /usr/share/arduino/libraries, location: ide]
+2020-12-10 02:10:30 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:10:30 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:10:30 daemon INFO Resolving include ArduinoJson.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: ArduinoJson, prio: 5DF]
+2020-12-10 02:10:30 daemon INFO   discarded [lib: CMMC_MQTT_Connector, prio: 3F5]
+2020-12-10 02:10:30 daemon INFO Resolving include Adafruit_Si7021.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: Adafruit_Si7021_Library, prio: 517]
+2020-12-10 02:10:30 daemon INFO Resolving include Wire.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: DS3231, prio: 3EB]
+2020-12-10 02:10:30 daemon INFO   found another lib with same priority [lib: ds3231FS, prio: 3EB]
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: Wire, prio: 5E8]
+2020-12-10 02:10:30 daemon INFO   discarded [lib: DS3231-1.0.2, prio: 3EB]
+2020-12-10 02:10:30 daemon INFO Resolving include WiFi.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: WiFi, prio: 5E8]
+2020-12-10 02:10:30 daemon INFO Resolving include HTTPClient.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: HTTPClient, prio: 5E8]
+2020-12-10 02:10:30 daemon INFO Resolving include WiFiClientSecure.h for arch esp32
+2020-12-10 02:10:30 daemon INFO   found better lib [lib: WiFiClientSecure, prio: 5E8]
+2020-12-10 02:10:39 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:10:39 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:10:39 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:10:39 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 1.0.0 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 5.8-arduino11]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:10:39 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:10:39 daemon INFO Waiting for upload port...
+2020-12-10 02:10:49 daemon INFO No new serial port detected.
+2020-12-10 02:11:38 monitor-service INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:11:38 monitor-service INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:11:38 root INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:11:38 root INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:13:34 root INFO The CLI daemon process has started.
+2020-12-10 02:13:34 root WARN Frontend keybindings.onStart is slow, took: 113.5 ms
+2020-12-10 02:13:34 root INFO [nsfw-watcher: 32057] Started watching: /home/geng/Arduino/i2c_scanner
+2020-12-10 02:13:34 root INFO [nsfw-watcher: 32057] Started watching: /home/geng/Arduino/i2c_scanner
+2020-12-10 02:13:34 root INFO Board config changed: 
+2020-12-10 02:13:34 root INFO Board config changed: 
+2020-12-10 02:13:34 root INFO Changed application state from 'init' to 'started_contributions'.
+2020-12-10 02:13:34 root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2020-12-10 02:13:34 root INFO >>> Restoring the layout state...
+2020-12-10 02:13:34 root INFO [nsfw-watcher: 32057] Started watching: /home/geng/.arduinoProIDE
+2020-12-10 02:13:34 root INFO [hosted-plugin: 32103] PLUGIN_HOST(32103) starting instance
+2020-12-10 02:13:35 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Sync of 1 plugin took: 535.5 ms
+2020-12-10 02:13:35 root INFO [nsfw-watcher: 32057] Started watching: /home/geng/Arduino/i2c_scanner/i2c_scanner.ino
+2020-12-10 02:13:35 root INFO Starting language server /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-language-server -clangd /usr/bin/clangd -cli /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli -fqbn esp32:esp32:esp32 -board-name "ESP32 Dev Module"
+2020-12-10 02:13:35 root INFO <<< The layout has been successfully restored.
+2020-12-10 02:13:35 root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2020-12-10 02:13:35 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a][vscode.cpp]: Loaded contributions.
+2020-12-10 02:13:35 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Load contributions of 1 plugin took: 2.8 ms
+2020-12-10 02:13:35 root WARN Error: 'cpp' language is remapped from 'source.cpp.embedded.macro' to 'source.cpp' scope
+    at TextmateRegistry.push../node_modules/@theia/monaco/lib/browser/textmate/textmate-registry.js.TextmateRegistry.mapLanguageIdToTextmateGrammar (file:///opt/arduino-pro-ide/resources/app/lib/36.bundle.js:1408:26)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8130:125
+    at pushContribution (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:7988:32)
+    at _loop_14 (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8130:21)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8139:25
+2020-12-10 02:13:35 root WARN Error: a registered grammar configuration for 'cpp' language is overridden
+    at TextmateRegistry.push../node_modules/@theia/monaco/lib/browser/textmate/textmate-registry.js.TextmateRegistry.registerGrammarConfiguration (file:///opt/arduino-pro-ide/resources/app/lib/36.bundle.js:1446:26)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8131:133
+    at pushContribution (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:7988:32)
+    at _loop_14 (file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8131:21)
+    at file:///opt/arduino-pro-ide/resources/app/lib/58.bundle.js:8139:25
+2020-12-10 02:13:36 root INFO [hosted-plugin: 32103] PLUGIN_HOST(32103): PluginManagerExtImpl/init()
+2020-12-10 02:13:36 root INFO [hosted-plugin: 32103] PLUGIN_HOST(32103): initializing(cpp@1.44.2 with /opt/arduino-pro-ide/resources/app/node_modules/@theia/plugin-ext-vscode/lib/node/plugin-vscode-init.js)
+2020-12-10 02:13:36 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a][vscode.cpp]: Started plugin.
+2020-12-10 02:13:36 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Start of 1 plugin took: 416.7 ms
+2020-12-10 02:13:36 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Sync of 0 plugins took: 2.5 ms
+2020-12-10 02:13:36 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Load contributions of 0 plugins took: 0.0 ms
+2020-12-10 02:13:36 root INFO [ffeb58c4-6b96-4cc2-98bc-aebcd2cc805a] Start of 0 plugins took: 7.9 ms
+2020-12-10 02:13:36 root INFO Changed application state from 'initialized_layout' to 'ready'.
+2020-12-10 02:13:43 root INFO Starting language server /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-language-server -clangd /usr/bin/clangd -cli /opt/arduino-pro-ide/resources/app/node_modules/arduino-ide-extension/build/arduino-cli -fqbn esp32:esp32:esp32 -board-name "ESP32 Dev Module"
+2020-12-10 02:14:03 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:14:03 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:14:03 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:14:03 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:14:03 root INFO >>> Disposing existing monitor connection...
+2020-12-10 02:14:03 root INFO <<< Disposed connection. Was: ESP32 Dev Module [esp32:esp32:esp32] /dev/ttyUSB0
+2020-12-10 02:14:05 root WARN Widget was activated, but did not accept focus after 2000ms: serial-monitor
+2020-12-10 02:14:13 discovery INFO Initialized attached boards and available ports. - Discovered boards: [] and available ports: [{"protocol":"serial","address":"/dev/ttyUSB0"}]
+2020-12-10 02:14:13 root INFO Attached boards and available ports changed: 
+2020-12-10 02:14:13 root INFO Board config changed: 
+2020-12-10 02:14:17 root INFO Board config changed: 
+2020-12-10 02:14:20 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:14:20 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:14:20 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:14:20 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:14:20 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:14:20 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:14:20 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:14:20 daemon INFO Adding libraries dir [dir: /usr/share/arduino/libraries, location: ide]
+2020-12-10 02:14:20 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:14:20 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:14:20 daemon INFO Resolving include Wire.h for arch esp32
+2020-12-10 02:14:20 daemon INFO   found better lib [lib: Wire, prio: 5E8]
+2020-12-10 02:14:20 daemon INFO   discarded [lib: ds3231FS, prio: 3EB]
+2020-12-10 02:14:20 daemon INFO   discarded [lib: DS3231, prio: 3EB]
+2020-12-10 02:14:20 daemon INFO   discarded [lib: DS3231-1.0.2, prio: 3EB]
+2020-12-10 02:14:22 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:14:22 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:14:22 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:14:22 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 5.8-arduino11]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 1.0.0 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2020-12-10 02:14:22 daemon INFO Tool required for upload [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:14:22 daemon INFO Waiting for upload port...
+2020-12-10 02:14:32 daemon INFO No new serial port detected.
+2020-12-10 02:15:17 monitor-service INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:15:17 monitor-service INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:15:17 root INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:15:17 root INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:16:29 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:16:29 monitor-service INFO >>> Disposing monitor connection...
+2020-12-10 02:16:29 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:16:29 monitor-service INFO <<< Disposed monitor connection for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:16:29 root INFO >>> Disposing existing monitor connection...
+2020-12-10 02:16:29 root INFO <<< Disposed connection. Was: ESP32 Dev Module [esp32:esp32:esp32] /dev/ttyUSB0
+2020-12-10 02:16:31 root WARN Widget was activated, but did not accept focus after 2000ms: serial-monitor
+2020-12-10 02:16:32 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:16:32 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:16:32 daemon INFO inventory.Store.ConfigFileUsed() /home/geng/.arduino15/inventory.yaml
+2020-12-10 02:16:32 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:16:32 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:16:32 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:16:32 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:16:32 daemon INFO Adding libraries dir [dir: /usr/share/arduino/libraries, location: ide]
+2020-12-10 02:16:32 daemon INFO Adding libraries dir [dir: /home/geng/.arduino15/packages/esp32/hardware/esp32/1.0.4/libraries, location: platform]
+2020-12-10 02:16:32 daemon INFO Adding libraries dir [dir: /home/geng/Arduino/libraries, location: user]
+2020-12-10 02:16:32 daemon INFO Resolving include ArduinoJson.h for arch esp32
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: CMMC_MQTT_Connector, prio: 3F5]
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: ArduinoJson, prio: 5DF]
+2020-12-10 02:16:32 daemon INFO Resolving include Adafruit_Si7021.h for arch esp32
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: Adafruit_Si7021_Library, prio: 517]
+2020-12-10 02:16:32 daemon INFO Resolving include Wire.h for arch esp32
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: ds3231FS, prio: 3EB]
+2020-12-10 02:16:32 daemon INFO   found another lib with same priority [lib: DS3231, prio: 3EB]
+2020-12-10 02:16:32 daemon INFO   found another lib with same priority [lib: DS3231-1.0.2, prio: 3EB]
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: Wire, prio: 5E8]
+2020-12-10 02:16:32 daemon INFO Resolving include WiFi.h for arch esp32
+2020-12-10 02:16:32 daemon INFO   found better lib [lib: WiFi, prio: 5E8]
+2020-12-10 02:16:33 daemon INFO Resolving include HTTPClient.h for arch esp32
+2020-12-10 02:16:33 daemon INFO   found better lib [lib: HTTPClient, prio: 5E8]
+2020-12-10 02:16:33 daemon INFO Resolving include WiFiClientSecure.h for arch esp32
+2020-12-10 02:16:33 daemon INFO   found better lib [lib: WiFiClientSecure, prio: 5E8]
+2020-12-10 02:16:36 daemon INFO Searching tools required for board esp32:esp32:esp32
+2020-12-10 02:16:36 daemon INFO Required tool [tool: {ToolName:"esptool_py",ToolVersion:"2.6.1",ToolPackager:"esp32"}]
+2020-12-10 02:16:36 daemon INFO Required tool [tool: {ToolName:"mkspiffs",ToolVersion:"0.2.3",ToolPackager:"esp32"}]
+2020-12-10 02:16:36 daemon INFO Required tool [tool: {ToolName:"xtensa-esp32-elf-gcc",ToolVersion:"1.22.0-80-g6c4433a-5.2.0",ToolPackager:"esp32"}]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 2.6.1 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 0.2.3 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: i386-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 1.22.0-80-g6c4433a-5.2.0 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 0.10.0-arduino13 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-linux-gnu, OS: i686-mingw32, OS: i386-apple-darwin11, OS: x86_64-linux-gnu]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 5.8-arduino11]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 7-2017q4 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-fe5bb56 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 1.9.1-arduino2 Systems: [OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: i686-pc-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 0.9.0-arduino2 Systems: [OS: i386-apple-darwin11, OS: arm-linux-gnueabihf, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 3.7.2-post1 Systems: [OS: x86_64-mingw32, OS: i686-mingw32, OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 1.0.0 Systems: [OS: i686-pc-linux-gnu, OS: x86_64-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: arm-linux-gnueabihf, OS: arm64-linux-gnueabihf]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 7.3.0-atmel3.6.1-arduino7 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin14, OS: i686-mingw32, OS: i686-linux-gnu, OS: x86_64-linux-gnu]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 6.3.0-arduino17 Systems: [OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: x86_64-apple-darwin12, OS: x86_64-linux-gnu, OS: i686-linux-gnu, OS: i686-mingw32]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 1.3.0 Systems: [OS: i686-linux-gnu, OS: x86_64-linux-gnu, OS: arm-linux-gnueabihf, OS: aarch64-linux-gnu, OS: i386-apple-darwin11, OS: i686-mingw32]]
+2020-12-10 02:16:36 daemon INFO Tool required for upload [tool: Version: 2.5.0-4-b40a506 Systems: [OS: aarch64-linux-gnu, OS: arm-linux-gnueabihf, OS: i686-pc-linux-gnu, OS: i686-mingw32, OS: x86_64-apple-darwin, OS: x86_64-pc-linux-gnu, OS: x86_64-mingw32]]
+2020-12-10 02:16:36 daemon INFO Waiting for upload port...
+2020-12-10 02:16:46 daemon INFO No new serial port detected.
+2020-12-10 02:17:36 monitor-service INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:17:36 monitor-service INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:17:36 root INFO >>> Creating serial monitor connection for ESP32 Dev Module [esp32:esp32:esp32] on port /dev/ttyUSB0...
+2020-12-10 02:17:36 root INFO <<< Serial monitor connection created for ESP32 Dev Module on port /dev/ttyUSB0.
+2020-12-10 02:23:45 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: []
+2020-12-10 02:23:45 discovery INFO Updated discovered boards and available ports. - Discovered boards: [] and available ports: []
+2020-12-10 02:23:45 root INFO Attached boards and available ports changed: 
+2020-12-10 02:23:45 root INFO Board config changed: 
+2020-12-10 02:23:45 root INFO Attached boards and available ports changed: 
+2020-12-10 02:23:45 root INFO Board config changed: 

@@ -23,7 +23,7 @@ badd +19 innergy-m9-api/node_modules/lucid-mongo/src/Database/index.js
 badd +45 innergy-m9-api/node_modules/lucid-mongo/providers/LucidMongoProvider.js
 badd +53 innergy-m9-api/node_modules/lucid-mongo/providers/MigrationsProvider.js
 badd +30 innergy-m9-api/node_modules/lucid-mongo/src/Schema/index.js
-badd +216 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
+badd +144 innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js
 badd +11 innergy-m9-api/app/Models/Device.js
 badd +31 innergy-m9-api/start/app.js
 badd +9 innergy-m9-api/package.json
@@ -47,8 +47,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
+exe 'vert 1resize ' . ((&columns * 114 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 121 + 118) / 236)
 argglobal
 setlocal fdm=syntax
 setlocal fde=0
@@ -86,11 +86,11 @@ normal! zo
 normal! zo
 67
 normal! zo
-let s:l = 34 - ((33 * winheight(0) + 24) / 49)
+let s:l = 38 - ((37 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-34
+38
 normal! 019|
 wincmd w
 argglobal
@@ -103,21 +103,24 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-145
+127
 normal! zo
-146
+128
 normal! zo
-163
+128
 normal! zo
-let s:l = 177 - ((175 * winheight(0) + 24) / 49)
+136
+normal! zo
+let s:l = 134 - ((133 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-177
-normal! 01|
+134
+normal! 07|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
-exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 114 + 118) / 236)
+exe 'vert 2resize ' . ((&columns * 121 + 118) / 236)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
