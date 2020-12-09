@@ -39,11 +39,9 @@ class DeviceV1Controller {
   }
 
   async store ({ request, response }) {
-    const { params, body } = request
+    const { body, u_id } = request
 
     const { data } = body
-
-    const { dev_id } = params
 
     const currentDate = new Date()
 
@@ -53,7 +51,7 @@ class DeviceV1Controller {
       }-${currentDate.getDate()}`
     )
 
-    const device = await DeviceModel.where({ u_id: dev_id })
+    const device = await DeviceModel.where({ u_id })
       .fetch()
       .then(query => query.first())
 
@@ -61,7 +59,7 @@ class DeviceV1Controller {
       const { value, type } = d
 
       let sensor = await SensorModel.findBy({
-        ref_u_id: dev_id,
+        ref_u_id: u_id,
         type,
         timestamp_date: { $gte: dateBegin }
       })
@@ -81,7 +79,7 @@ class DeviceV1Controller {
 
     await Promise.all(promises)
 
-    const result = await DeviceModel.where({ u_id: dev_id })
+    const result = await DeviceModel.where({ u_id })
       .with('sensors.raws')
       .fetch()
 

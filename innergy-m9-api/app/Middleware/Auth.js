@@ -28,7 +28,7 @@ class Auth {
       } catch (e) {
         response.status(403).send({
           status: 'failed',
-          message: 'Access denied. invalid jwt/api token.'
+          message: `Access denied. ${e.toString()}.`
         })
         return
       }

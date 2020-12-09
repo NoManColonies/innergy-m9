@@ -8,10 +8,11 @@ const { v4: uuidv4 } = require('uuid')
 class AuthController {
   async store ({ request, response, auth }) {
     const { qs } = request
-    const username = request.input('username')
-    const password = request.input('password')
-    const email = request.input('email')
-    const key = request.input('secretKey')
+    const username = request.header('username')
+    const password = request.header('password')
+    console.log(username, password)
+    const email = request.header('email')
+    const key = request.header('secretKey')
     const { session = 'jwt' } = qs
     const uuid = uuidv4()
 
@@ -34,8 +35,8 @@ class AuthController {
   }
 
   async loginJwt ({ request, response, auth }) {
-    const username = request.input('username')
-    const password = request.input('password')
+    const username = request.header('username')
+    const password = request.header('password')
 
     try {
       const token = await auth
@@ -56,8 +57,8 @@ class AuthController {
   }
 
   async loginApi ({ request, response, auth }) {
-    const username = request.input('username')
-    const password = request.input('password')
+    const username = request.header('username')
+    const password = request.header('password')
 
     try {
       const token = await auth.authenticator('api').attempt(username, password)
@@ -75,7 +76,7 @@ class AuthController {
   }
 
   async refreshJwtToken ({ request, response, auth }) {
-    const refreshToken = request.input('refreshToken')
+    const refreshToken = request.header('refreshToken')
 
     try {
       const token = await auth
@@ -96,7 +97,7 @@ class AuthController {
   }
 
   async logoutJwt ({ request, response, auth }) {
-    const refreshToken = request.input('refreshToken')
+    const refreshToken = request.header('refreshToken')
 
     try {
       await auth
@@ -132,7 +133,7 @@ class AuthController {
   }
 
   async revokeApi ({ request, response, auth }) {
-    const apiToken = request.input('apiToken')
+    const apiToken = request.header('apiToken')
 
     try {
       await auth.authenticator('api').revokeTokens([apiToken])

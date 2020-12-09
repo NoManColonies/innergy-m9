@@ -31,8 +31,12 @@ Route.group(() => {
 }).prefix('api/v0')
 
 Route.group(() => {
-  Route.post('/', 'DeviceV1Controller.registerDevice').middleware('auth:user')
-  Route.post('/:dev_id', 'DeviceV1Controller.store').middleware('auth:device')
+  Route.post('/device/create', 'DeviceV1Controller.registerDevice').middleware(
+    'auth:user'
+  )
+  Route.post('/device/feed', 'DeviceV1Controller.store').middleware(
+    'auth:device'
+  )
   Route.post('/user/create', 'AuthController.store').middleware('guest')
   Route.post('/user/jwt/login', 'AuthController.loginJwt').middleware('guest')
   Route.post('/user/api/login', 'AuthController.loginApi').middleware('guest')
