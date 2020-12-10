@@ -332,6 +332,30 @@ openapi.modulars.io/api/v1
 
 ### Collection
 
+ - units
+```
+db.createCollection("units",
+{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [
+        "name",
+        "unit"
+      ],
+         properties: {
+            name: {
+               bsonType: "string"
+        },
+            unit: {
+               bsonType: "string"
+        }
+      }
+    }
+  }
+})
+```
+
  - raws
 ```
 db.createCollection("raws",

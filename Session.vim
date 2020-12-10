@@ -86,12 +86,12 @@ normal! zo
 normal! zo
 67
 normal! zo
-let s:l = 38 - ((37 * winheight(0) + 24) / 49)
+let s:l = 47 - ((22 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-38
-normal! 019|
+47
+normal! 03|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js") | buffer innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | else | edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | endif
@@ -103,20 +103,40 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-127
+6
 normal! zo
-128
+16
 normal! zo
-128
+19
 normal! zo
-136
+26
 normal! zo
-let s:l = 134 - ((133 * winheight(0) + 24) / 49)
+32
+normal! zo
+33
+normal! zo
+36
+normal! zo
+37
+normal! zo
+113
+normal! zo
+113
+normal! zc
+131
+normal! zo
+132
+normal! zo
+132
+normal! zo
+140
+normal! zo
+let s:l = 7 - ((6 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-134
-normal! 07|
+7
+normal! 012|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 114 + 118) / 236)

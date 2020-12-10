@@ -6,7 +6,11 @@ const { v4: uuidv4 } = require('uuid')
 const units = {
   temp: 'degree Celcius',
   moist: 'Percentage',
-  pres: 'Pa'
+  pres: 'Pa',
+  alti: 'meter',
+  windspkm: 'km/h',
+  windspms: 'm/s',
+  brig: 'lux'
 }
 
 const getCurrentDate = () => {
