@@ -105,38 +105,38 @@ setlocal fdn=20
 setlocal fen
 6
 normal! zo
-16
+17
 normal! zo
-19
+20
 normal! zo
-26
-normal! zo
-32
+27
 normal! zo
 33
 normal! zo
-36
+34
 normal! zo
 37
 normal! zo
-113
+38
 normal! zo
-113
+114
+normal! zo
+114
 normal! zc
-131
-normal! zo
 132
 normal! zo
-132
+133
 normal! zo
-140
+133
 normal! zo
-let s:l = 7 - ((6 * winheight(0) + 23) / 47)
+141
+normal! zo
+let s:l = 13 - ((12 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 012|
+13
+normal! 014|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 114 + 118) / 236)

@@ -10,7 +10,8 @@ const units = {
   alti: 'meter',
   windspkm: 'km/h',
   windspms: 'm/s',
-  brig: 'lux'
+  brig: 'lux',
+  volt: 'voltage'
 }
 
 const getCurrentDate = () => {
