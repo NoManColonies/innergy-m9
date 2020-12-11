@@ -10,6 +10,7 @@ const units = {
   alti: 'meter',
   windspkm: 'km/h',
   windspms: 'm/s',
+  winddrct: 'degree',
   brig: 'lux',
   volt: 'voltage'
 }
