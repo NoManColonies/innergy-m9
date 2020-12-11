@@ -58,6 +58,10 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
+22
+normal! zo
+22
+normal! zo
 34
 normal! zo
 34
@@ -66,12 +70,12 @@ normal! zo
 normal! zo
 59
 normal! zo
-let s:l = 57 - ((42 * winheight(0) + 23) / 47)
+let s:l = 31 - ((28 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-57
-normal! 015|
+31
+normal! 012|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js") | buffer innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | else | edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | endif
@@ -121,14 +125,17 @@ normal! zo
 normal! zo
 284
 normal! zo
-let s:l = 239 - ((88 * winheight(0) + 23) / 47)
+292
+normal! zo
+292
+normal! zo
+let s:l = 225 - ((198 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-239
-normal! 047|
+225
+normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)
 exe 'vert 2resize ' . ((&columns * 118 + 118) / 236)
 tabnext 1

@@ -28,7 +28,7 @@ Route.group(() => {
     'DeviceController.showWithSubFilter'
   )
 })
-  .prefix('api/v0')
+  .prefix('v0')
   .middleware('auth:admin')
 
 Route.group(() => {
@@ -71,4 +71,4 @@ Route.group(() => {
     '/:dev_id/s/:type/t/:timestamp',
     'DeviceV1Controller.showWithFilter'
   ).middleware('auth:user,admin')
-}).prefix('api/v1')
+}).prefix('v1')
