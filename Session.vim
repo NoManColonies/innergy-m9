@@ -121,12 +121,12 @@ normal! zo
 normal! zo
 284
 normal! zo
-let s:l = 235 - ((102 * winheight(0) + 23) / 47)
+let s:l = 239 - ((88 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-235
-normal! 018|
+239
+normal! 047|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 117 + 118) / 236)

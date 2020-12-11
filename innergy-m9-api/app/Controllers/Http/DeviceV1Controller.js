@@ -236,7 +236,7 @@ class DeviceV1Controller {
         .where({ timestamp_date: currentDate })
         .setHidden(['_id', 's_id', 'ref_u_id'])
         .sort('-timestamp_date')
-        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp')))
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id'])))
       .fetch()
       .then(query => query.toJSON())
       .then(devicesQuery => devicesQuery.map(device => {
