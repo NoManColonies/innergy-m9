@@ -70,12 +70,12 @@ normal! zo
 normal! zo
 59
 normal! zo
-let s:l = 31 - ((28 * winheight(0) + 23) / 47)
+let s:l = 74 - ((41 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-31
-normal! 012|
+74
+normal! 015|
 wincmd w
 argglobal
 if bufexists("innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js") | buffer innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | else | edit innergy-m9-api/app/Controllers/Http/DeviceV1Controller.js | endif
