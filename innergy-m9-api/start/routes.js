@@ -53,6 +53,9 @@ Route.group(() => {
   )
   Route.get('/', 'DeviceV1Controller.index').middleware('auth:user,admin')
   Route.get('/:dev_id', 'DeviceV1Controller.show').middleware('auth:user,admin')
+  Route.get('/t/latest', 'DeviceV1Controller.showLatest').middleware(
+    'auth:user,admin'
+  )
   Route.get(
     '/:dev_id/t/:timestamp',
     'DeviceV1Controller.showWithTimestamp'

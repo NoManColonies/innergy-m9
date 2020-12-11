@@ -40,20 +40,16 @@ const queryWithTimestampConditions = (
             ? { timestamp_date: currentDate, type }
             : { timestamp_date: currentDate }
         )
-        .with('raws', subBuilder => subBuilder.sort('-timestamp')))
+        .setHidden(['s_id', '_id', 'ref_u_id'])
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id'])))
       .sort('-timestamp_date')
       .first()
-      .then(query => query.toJSON())
-      .then(device => {
-        device.sensors = device.sensors.map(sensor => {
-          const [raw] = sensor.raws
-          sensor.raws = undefined
-          sensor.raw = raw
-          return sensor
-        })
-
-        return device
-      })
+      .then(query => query.getRelated('sensors').toJSON())
+      .then(sensors => sensors.map(sensor => {
+        const [valueProperties] = sensor.valueProperties
+        sensor.valueProperties = valueProperties
+        return sensor
+      }))
   }
   if (timestamp.indexOf('~') === -1) {
     const filter = new Date(timestamp)
@@ -65,9 +61,11 @@ const queryWithTimestampConditions = (
     )
       .with('sensors', builder => builder
         .where(typeCondition ? { timestamp_date, type } : { timestamp_date })
-        .with('raws', subBuilder => subBuilder.sort('-timestamp')))
+        .setHidden(['_id', 's_id', 'ref_u_id'])
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id'])))
       .sort('-timestamp_date')
       .first()
+      .then(query => query.getRelated('sensors'))
   }
   const timestamps = timestamp.split('~')
   const filters = [new Date(timestamps[0]), new Date(timestamps[1])]
@@ -104,11 +102,14 @@ const queryWithTimestampConditions = (
             }
           }
       )
-      .with('raws', subBuilder => subBuilder
+      .with('valueProperties', subBuilder => subBuilder
         .where({ timestamp: { $gte: timestamps[0], $lte: timestamps[1] } })
-        .sort('-timestamp'))
-      .sort('-timestamp_date'))
+        .sort('-timestamp')
+        .setHidden(['_id', 'ref_s_id']))
+      .sort('-timestamp_date')
+      .setHidden(['_id', 's_id', 'ref_u_id']))
     .first()
+    .then(query => query.getRelated('sensors'))
 }
 
 const createNewDevice = ({ response, auth, role, u_id }) => {
@@ -129,25 +130,23 @@ const createNewDevice = ({ response, auth, role, u_id }) => {
   }).then(device => [device, auth.authenticator('api').generate(device)])
 }
 
-const feedNewData = ({ data, device, timestamp_date, u_id }) => {
-  data.map(async d => {
-    const { value, type } = d
+const feedNewData = ({ data, device, timestamp_date, u_id }) => data.map(async d => {
+  const { value, type } = d
 
-    const sensor = await device
-      .sensors()
-      .where({ ref_u_id: u_id, type, timestamp_date })
-      .first()
+  const sensor = await device
+    .sensors()
+    .where({ ref_u_id: u_id, type, timestamp_date })
+    .first()
 
-    if (sensor) {
-      return sensor.raws().create({ value })
-    }
+  if (sensor) {
+    return sensor.valueProperties().create({ value })
+  }
 
-    return device
-      .sensors()
-      .create({ s_id: uuidv4(), type, unit: units[type], timestamp_date })
-      .then(newSensor => newSensor.raws().create({ value }))
-  })
-}
+  return device
+    .sensors()
+    .create({ s_id: uuidv4(), type, unit: units[type], timestamp_date })
+    .then(newSensor => newSensor.valueProperties().create({ value }))
+})
 
 class DeviceV1Controller {
   async registerDevice ({ request, response, auth }) {
@@ -176,7 +175,7 @@ class DeviceV1Controller {
 
     const device = await DeviceModel.findBy({ u_id })
 
-    feedNewData({ data, device, timestamp_date, u_id })
+    await Promise.all(feedNewData({ data, device, timestamp_date, u_id }))
 
     return response.status(201).send({ status: 'success' })
   }
@@ -187,14 +186,11 @@ class DeviceV1Controller {
     const devices = await DeviceModel.where(
       role === 'admin' ? { role: 'device' } : { role: 'device', owner: u_id }
     )
-      .setHidden([
-        'role',
-        'created_at',
-        'updated_at',
-        'auth_id',
-        'owner',
-        '_id'
-      ])
+      .setHidden(['role', 'auth_id', 'owner', '_id', 'updated_at'])
+      .with('sensors', builder => builder
+        .setHidden(['_id', 's_id', 'ref_u_id'])
+        .limit(5)
+        .sort('-timestamp_date'))
       .fetch()
 
     return response.status(200).send({
@@ -210,18 +206,52 @@ class DeviceV1Controller {
 
     const currentDate = getCurrentDate()
 
-    const result = await DeviceModel.where(
+    const data = await DeviceModel.where(
       role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
     )
       .with('sensors', builder => builder
         .where({ timestamp_date: { $gte: currentDate } })
-        .with('raws', subBuilder => subBuilder.sort('-timestamp')))
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id']))
+        .setHidden(['_id', 's_id', 'ref_u_id']))
       .sort('-timestamp_date')
       .first()
+      .then(query => query.getRelated('sensors'))
 
     return response.status(200).send({
       status: 'success',
-      result
+      data
+    })
+  }
+
+  async showLatest ({ request, response }) {
+    const { role, u_id } = request
+
+    const currentDate = getCurrentDate()
+
+    const devices = await DeviceModel.where(
+      role === 'admin' ? { role: 'device' } : { role: 'device', owner: u_id }
+    )
+      .setHidden(['role', 'auth_id', 'owner', '_id', 'updated_at'])
+      .with('sensors', builder => builder
+        .where({ timestamp_date: currentDate })
+        .setHidden(['_id', 's_id', 'ref_u_id'])
+        .sort('-timestamp_date')
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp')))
+      .fetch()
+      .then(query => query.toJSON())
+      .then(devicesQuery => devicesQuery.map(device => {
+        device.sensors = device.sensors.map(sensor => {
+          const [valueProperties] = sensor.valueProperties
+          sensor.valueProperties = valueProperties
+          return sensor
+        })
+
+        return device
+      }))
+
+    return response.status(200).send({
+      status: 'success',
+      devices
     })
   }
 
@@ -230,7 +260,7 @@ class DeviceV1Controller {
 
     const { dev_id, timestamp } = params
 
-    const result = await queryWithTimestampConditions({
+    const data = await queryWithTimestampConditions({
       timestamp,
       u_id,
       role,
@@ -239,7 +269,7 @@ class DeviceV1Controller {
 
     return response.status(200).send({
       status: 'success',
-      result
+      data
     })
   }
 
@@ -248,18 +278,20 @@ class DeviceV1Controller {
 
     const { dev_id, type } = params
 
-    const result = await DeviceModel.where(
+    const data = await DeviceModel.where(
       role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }
     )
       .with('sensors', builder => builder
         .where({ type })
-        .with('raws', subBuilder => subBuilder.sort('-timestamp')))
+        .setHidden(['_id', 's_id', 'ref_u_id'])
+        .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id'])))
       .sort('-timestamp_date')
       .first()
+      .then(query => query.getRelated('sensors'))
 
     return response.status(200).send({
       status: 'success',
-      result
+      data
     })
   }
 
@@ -268,7 +300,7 @@ class DeviceV1Controller {
 
     const { dev_id, type, timestamp } = params
 
-    const result = await queryWithTimestampConditions(
+    const data = await queryWithTimestampConditions(
       {
         timestamp,
         type,
@@ -281,7 +313,7 @@ class DeviceV1Controller {
 
     return response.status(200).send({
       status: 'success',
-      result
+      data
     })
   }
 }

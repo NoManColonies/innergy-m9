@@ -20,7 +20,7 @@ class Sensor extends Model {
     return this.belongsTo('App/Models/User', 'ref_u_id', 'u_id')
   }
 
-  raws () {
+  valueProperties () {
     return this.hasMany('App/Models/Raw', 's_id', 'ref_s_id')
   }
 }
