@@ -29,6 +29,10 @@ class AuthController {
 
     return response.status(201).send({
       status: 'success',
+      user: {
+        u_id: uuid,
+        username
+      },
       token
     })
   }

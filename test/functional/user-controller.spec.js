@@ -15,7 +15,7 @@ test('should return status message of success upon user instance creation.', asy
     .header('password', 'password')
     .end()
 
-  await UserModel.first().then(query => query.delete())
+  await UserModel.findBy({ u_id: response.body.user.u_id }).then(query => query.delete())
 
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
