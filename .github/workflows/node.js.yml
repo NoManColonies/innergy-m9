@@ -32,8 +32,8 @@ jobs:
       run: npx adonis key:generate
     - name: Start MongoDB
       run: sudo systemctl start mongod
-    - name: Configure mongodb
-    - run: echo "db.createUser({ \  
+    - name: Configure mongodb admin
+      run: echo "db.createUser({ \  
                   user:\"root\", \
                   pwd:\"example\", \
                   roles:[ \  
@@ -43,7 +43,8 @@ jobs:
                     } \
                   ] \
                 })" | mongo
-    - run: echo "db.createUser({ \
+    - name: Configure mongodb user
+      run: echo "db.createUser({ \
                     user:\"root\", \
                     pwd:\"example\", \
                     roles:[ \
