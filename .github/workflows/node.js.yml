@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ env.node_version }}
     - name: Install NodeJS dependencies
-      run: ls package-lock.json && npm install
+      run: cd innergy-m9-api/ && ls package-lock.json && npm install
     - name: Generate environment file
       run: cp .env.example .env
     - name: Generate Adonis app secret key
