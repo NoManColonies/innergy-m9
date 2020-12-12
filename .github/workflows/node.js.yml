@@ -32,10 +32,18 @@ jobs:
       run: npx adonis key:generate
     - name: Start MongoDB
       run: sudo systemctl start mongod
-    - name: test mongodb connection
-      run: sudo apt install nmap -y && nmap 127.0.0.1
     - name: Configure mongodb
-      run: echo "db.createUser({ \
+    - run: echo "db.createUser({ \  
+                  user:\"root\", \
+                  pwd:\"example\", \
+                  roles:[ \  
+                    { \  
+                      role:\"userAdminAnyDatabase\", \
+                      db:\"admin\" \
+                    } \
+                  ] \
+                })" | mongo
+    - run: echo "db.createUser({ \
                     user:\"root\", \
                     pwd:\"example\", \
                     roles:[ \
