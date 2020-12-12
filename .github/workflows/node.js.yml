@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.node_version }}
+    - uses: c-hive/gha-npm-cache@v1
     - name: Install NodeJS dependencies
       run: cd innergy-m9-api/ && ls package-lock.json && npm install
     - name: Generate environment file
