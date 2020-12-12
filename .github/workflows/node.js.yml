@@ -32,10 +32,7 @@ jobs:
       run: npx adonis key:generate
     - name: Start Docker for Mongodb
 #      run: docker-compose up -d
-      run: docker run -d -p 27017:27017 \
-            -e MONGO_INITDB_ROOT_USERNAME=root \
-            -e MONGO_INITDB_ROOT_PASSWORD=example \
-            mongo
+      run: docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo
 #    - name: Configure mongodb admin
 #      run: echo "db.createUser({ \
 #                    user:\"root\", \
