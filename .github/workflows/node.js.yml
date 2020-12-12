@@ -31,8 +31,11 @@ jobs:
     - name: Generate Adonis app secret key
       run: npx adonis key:generate
     - name: Start Docker for Mongodb
-      run: docker-compose up -d
-#      run: docker run -d -p 27017:27017 mongo
+#      run: docker-compose up -d
+      run: docker run -d -p 27017:27017 \
+            -e MONGO_INITDB_ROOT_USERNAME=root \
+            -e MONGO_INITDB_ROOT_PASSWORD=example \
+            mongo
 #    - name: Configure mongodb admin
 #      run: echo "db.createUser({ \
 #                    user:\"root\", \
@@ -57,6 +60,6 @@ jobs:
                     mechanisms:[ \
                       \"SCRAM-SHA-1\" \
                     ] \
-                  })" | mongo 127.0.0.1:27017/innergyDB -u root -p example --authenticationDatabase admin
+                  })" | mongo mongo/innergyDB -u root -p example --authenticationDatabase admin
     - name: Perform integration test
       run: ls package-lock.json && npm run test
