@@ -23,11 +23,11 @@ jobs:
         node-version: ${{ env.node_version }}
     - uses: c-hive/gha-npm-cache@v1
     - name: Install NodeJS dependencies
-      run: cd innergy-m9-api/ && ls package-lock.json && npm install
+      run: ls package-lock.json && npm install
     - name: Generate environment file
-      run: cd innergy-m9-api/ && cp .env.example .env
+      run: cp .env.example .env
     - name: Generate Adonis app secret key
-      run: cd innergy-m9-api/ && npx adonis key:generate
+      run: npx adonis key:generate
     - name: Perform integration test
-      run: cd innergy-m9-api/ && ls package-lock.json && npm run test
+      run: ls package-lock.json && npm run test
 
