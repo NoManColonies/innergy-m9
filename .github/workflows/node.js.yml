@@ -26,11 +26,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - uses: c-hive/gha-npm-cache@v1
     - name: Install NodeJS dependencies
-      run: npm ci && npm install
+      run: ls package-lock.json && npm install
     - name: Generate environment file
       run: cp .env.example .env
     - name: Generate Adonis app secret key
       run: npx adonis key:generate
     - name: Perform integration test
-      run: npm run test
+      run: ls package-lock.json && npm run test
 
