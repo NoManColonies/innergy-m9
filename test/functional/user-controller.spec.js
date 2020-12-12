@@ -13,7 +13,6 @@ test('should return status message of success upon user instance creation.', asy
     .header('username', 'test')
     .header('password', 'password')
     .end()
-  console.log(response)
 
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
