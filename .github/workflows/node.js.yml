@@ -30,6 +30,8 @@ jobs:
       run: npm install --global @adonisjs/cli
     - name: Generate Adonis app secret key
       run: npx adonis key:generate
+    - name: Deploying mongodb docker image
+      run: docker-compose up -d
     - name: Perform integration test
       run: ls package-lock.json && npm run test
 
