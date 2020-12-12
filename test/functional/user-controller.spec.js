@@ -9,7 +9,7 @@ const urlEndPoint = '/api/v1/user'
 
 test('should return status message of success upon user instance creation.', async ({ client }) => {
   const response = await client
-    .post(`${urlEndPoint}/user/create`)
+    .post(`${urlEndPoint}/create`)
     .header('username', 'test')
     .header('password', 'password')
     .end()
