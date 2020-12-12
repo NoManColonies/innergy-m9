@@ -18,26 +18,11 @@ const Route = use('Route')
 
 Route.get('/', () => ({ greeting: 'Welcome to innergy M9 project API!' }))
 
-// /!\ Deprecated route /!\
 Route.group(() => {
-  Route.get('/', 'DeviceController.index')
-  Route.get('/:dev_id', 'DeviceController.show')
-  Route.get('/:dev_id/:filter', 'DeviceController.showWithFilter')
-  Route.get(
-    '/:dev_id/:filter/:sub_filter',
-    'DeviceController.showWithSubFilter'
-  )
-})
-  .prefix('api/v0')
-  .middleware('auth:admin')
-
-Route.group(() => {
-  Route.post('/device/create', 'DeviceV1Controller.registerDevice').middleware(
+  Route.post('/device/create', 'DeviceController.registerDevice').middleware(
     'auth:user'
   )
-  Route.post('/device/feed', 'DeviceV1Controller.store').middleware(
-    'auth:device'
-  )
+  Route.post('/device/feed', 'DeviceController.store').middleware('auth:device')
   Route.post('/user/create', 'AuthController.store').middleware('guest')
   Route.post('/user/jwt/login', 'AuthController.loginJwt').middleware('guest')
   Route.post('/user/api/login', 'AuthController.loginApi').middleware('guest')
@@ -51,24 +36,24 @@ Route.group(() => {
   Route.delete('/user/api/revoke', 'AuthController.revokeApi').middleware(
     'auth:user'
   )
-  Route.get('/', 'DeviceV1Controller.index').middleware('auth:user,admin')
-  Route.get('/:dev_id', 'DeviceV1Controller.show').middleware('auth:user,admin')
-  Route.get('/t/latest', 'DeviceV1Controller.showLatest').middleware(
+  Route.get('/', 'DeviceController.index').middleware('auth:user,admin')
+  Route.get('/:dev_id', 'DeviceController.show').middleware('auth:user,admin')
+  Route.get('/t/latest', 'DeviceController.showLatest').middleware(
     'auth:user,admin'
   )
   Route.get(
     '/:dev_id/t/:timestamp',
     'DeviceV1Controller.showWithTimestamp'
   ).middleware('auth:user,admin')
-  Route.get('/:dev_id/s/:type', 'DeviceV1Controller.showWithType').middleware(
+  Route.get('/:dev_id/s/:type', 'DeviceController.showWithType').middleware(
     'auth:user,admin'
   )
   Route.get(
     '/:dev_id/t/:timestamp/s/:type',
-    'DeviceV1Controller.showWithFilter'
+    'DeviceController.showWithFilter'
   ).middleware('auth:user,admin')
   Route.get(
     '/:dev_id/s/:type/t/:timestamp',
-    'DeviceV1Controller.showWithFilter'
+    'DeviceController.showWithFilter'
   ).middleware('auth:user,admin')
 }).prefix('api/v1')
