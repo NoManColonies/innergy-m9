@@ -57,6 +57,6 @@ jobs:
                     mechanisms:[ \
                       \"SCRAM-SHA-1\" \
                     ] \
-                  })" | mongo mongo/innergyDB -u root -p example --authenticationDatabase admin
+                  })" | mongo mongo -u root -p example --authenticationDatabase admin
     - name: Perform integration test
       run: ls package-lock.json && npm run test
