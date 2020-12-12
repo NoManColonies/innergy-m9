@@ -8,6 +8,15 @@ services:
       - "3333:3333"
     volumes:
       - ./innergy-m9-api:/app
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: innergyDB
+    ports:
+      - "27017:27017"
   database:
     image: mysql:latest
     restart: always

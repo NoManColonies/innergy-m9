@@ -68,9 +68,9 @@ module.exports = {
     connection: {
       host: Env.get('MONGO_DB_HOST', 'localhost'),
       port: Env.get('MONGO_DB_PORT', 27017),
-      username: Env.get('MONGO_DB_USER', 'admin'),
-      password: Env.get('MONGO_DB_PASSWORD', ''),
-      database: Env.get('MONGO_DB_DATABASE', 'adonis'),
+      username: Env.get('MONGO_DB_USER', 'root'),
+      password: Env.get('MONGO_DB_PASSWORD', 'example'),
+      database: Env.get('MONGO_DB_DATABASE', 'innergyDB'),
       options: {
         // replicaSet: Env.get('DB_REPLICA_SET', '')
         // ssl: Env.get('DB_SSL, '')
