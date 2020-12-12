@@ -29,7 +29,7 @@ jobs:
     - name: Install Adonisjs/cli
       run: npm install --global @adonisjs/cli
     - name: Generate Adonis app secret key
-      run: npx node ace key:generate
+      run: npx adonis key:generate
     - name: Perform integration test
       run: ls package-lock.json && npm run test
 
