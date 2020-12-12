@@ -1,7 +1,19 @@
 'use strict'
 
-const { test } = use('Test/Suite')('User Controller')
+const { test, trait } = use('Test/Suite')('User Controller')
 
-test('make sure 2 + 2 is 4', async ({ assert }) => {
-  assert.equal(2 + 2, 4)
+trait('Test/ApiClient')
+trait('Auth/Client')
+
+const urlEndPoint = '/api/v1/user'
+
+test('should return status message of success upon user instance creation.', async ({ client }) => {
+  const response = await client
+    .post(`${urlEndPoint}/user/create`)
+    .header('username', 'test')
+    .header('password', 'password')
+    .end()
+
+  response.assertStatus(201)
+  response.assertJSONSubset({ status: 'success' })
 })

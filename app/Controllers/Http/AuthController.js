@@ -10,7 +10,6 @@ class AuthController {
     const { qs } = request
     const username = request.header('username')
     const password = request.header('password')
-    console.log(username, password)
     const email = request.header('email')
     const key = request.header('secretKey')
     const { session = 'jwt' } = qs
