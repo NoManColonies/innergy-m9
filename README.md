@@ -2,7 +2,7 @@
 
 - Visit link below for further documentations.
 ```
-http://34.126.117.33/
+https://docs.worawanbydiistudent.store/
 ```
 
 ### Collection
@@ -79,9 +79,9 @@ db.createCollection("users",
       $jsonSchema: {
          bsonType: "object",
          required: [
-        "role",
-        "u_id"
-      ],
+          "role",
+          "u_id"
+        ],
          properties: {
             role: {
                enum: [
@@ -90,8 +90,8 @@ db.createCollection("users",
             "device"
           ]
         },
-            u_id: {
-               bsonType: "string"
+        u_id: {
+           bsonType: "string"
         },
       }
     }
