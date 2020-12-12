@@ -42,7 +42,7 @@ jobs:
                       db:\"admin\" \
                     } \
                   ] \
-                })" | mongo
+                })" | mongo mongo
     - name: Configure mongodb user
       run: echo "db.createUser({ \
                     user:\"root\", \
@@ -56,6 +56,6 @@ jobs:
                     mechanisms:[ \
                       \"SCRAM-SHA-1\" \
                     ] \
-                  })" | mongo 127.0.0.1:27017/innergyDB -u root -p example --authenticationDatabase admin
+                  })" | mongo mongo/innergyDB -u root -p example --authenticationDatabase admin
     - name: Perform integration test
       run: ls package-lock.json && npm run test
