@@ -12,3 +12,6 @@ innergy-m9-api/database/*.sqlite
 
 # Vim session
 Session.vim
+
+# Yarn log
+yarn-error.log
