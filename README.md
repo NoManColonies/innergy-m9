@@ -1,100 +1,28 @@
-### Innergy M9 project
+# Adonis API application
 
-- Visit link below for further documentations.
-```
-https://docs.worawanbydiistudent.store/
-```
+This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
 
-### Collection
+1. Bodyparser
+2. Authentication
+3. CORS
+4. Lucid ORM
+5. Migrations and seeds
 
- - units
-```
-db.createCollection("units",
-{
-   validator: {
-      $jsonSchema: {
-         bsonType: "object",
-         required: [
-        "name",
-        "unit"
-      ],
-         properties: {
-            name: {
-               bsonType: "string"
-        },
-            unit: {
-               bsonType: "string"
-        }
-      }
-    }
-  }
-})
+## Setup
+
+Use the adonis command to install the blueprint
+
+```bash
+adonis new yardstick --api-only
 ```
 
- - raws
-```
-db.createCollection("raws",
-{
-   validator: {
-      $jsonSchema: {
-         bsonType: "object",
-         required: [
-        "value",
-        "timestamp"
-      ]
-    }
-  }
-})
-```
+or manually clone the repo and then run `npm install`.
 
- - sensors
-```
-db.createCollection("sensors",
-{
-   validator: {
-      $jsonSchema: {
-         bsonType: "object",
-         required: [
-        "type",
-        "unit"
-      ],
-         properties: {
-            type: {
-               bsonType: "string"
-        },
-            unit: {
-               bsonType: "string"
-        },
-      }
-    }
-  }
-})
-```
 
- - user
-```
-db.createCollection("users",
-{
-   validator: {
-      $jsonSchema: {
-         bsonType: "object",
-         required: [
-          "role",
-          "u_id"
-        ],
-         properties: {
-            role: {
-               enum: [
-            "user",
-            "admin",
-            "device"
-          ]
-        },
-        u_id: {
-           bsonType: "string"
-        },
-      }
-    }
-  }
-})
+### Migrations
+
+Run the following command to run startup migrations.
+
+```js
+adonis migration:run
 ```

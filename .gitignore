@@ -1,17 +1,14 @@
 # Node modules
-innergy-m9-api/node_modules
+node_modules
 
 # Adonis directory for storing tmp files
-innergy-m9-api/tmp
+tmp
 
 # Environment variables, never commit this file
-innergy-m9-api/.env
+.env
 
 # The development sqlite file
-innergy-m9-api/database/*.sqlite
+database/*.sqlite
 
-# Vim session
+# Vim session file
 Session.vim
-
-# Yarn log
-yarn-error.log
