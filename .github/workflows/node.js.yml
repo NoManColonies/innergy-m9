@@ -24,9 +24,9 @@ jobs:
     - name: Install NodeJS dependencies
       run: cd innergy-m9-api/ && ls package-lock.json && npm install
     - name: Generate environment file
-      run: cp .env.example .env
+      run: cd innergy-m9-api/ && cp .env.example .env
     - name: Generate Adonis app secret key
-      run: npx adonis key:generate
+      run: cd innergy-m9-api/ && npx adonis key:generate
     - name: Perform integration test
-      run: ls package-lock.json && npm run test
+      run: cd innergy-m9-api/ && ls package-lock.json && npm run test
 
