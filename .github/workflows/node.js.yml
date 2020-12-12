@@ -30,9 +30,9 @@ jobs:
       run: npm install --global @adonisjs/cli
     - name: Generate Adonis app secret key
       run: npx adonis key:generate
-    - name: Start Docker for Mongodb
+    # - name: Start Docker for Mongodb
 #      run: docker-compose up -d
-      run: docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo
+      # run: docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo
 #    - name: Configure mongodb admin
 #      run: echo "db.createUser({ \
 #                    user:\"root\", \
@@ -44,19 +44,19 @@ jobs:
 #                      } \
 #                    ] \
 #                  })" | mongo mongo
-    - name: Configure mongodb user
-      run: echo "db.createUser({ \
-                    user:\"root\", \
-                    pwd:\"example\", \
-                    roles:[ \
-                      { \
-                        role:\"readWrite\", \
-                        db:\"innergyDB\" \
-                      } \
-                    ], \
-                    mechanisms:[ \
-                      \"SCRAM-SHA-1\" \
-                    ] \
-                  })" | mongo mongo -u root -p example --authenticationDatabase admin
+    # - name: Configure mongodb user
+    #   run: echo "db.createUser({ \
+    #                 user:\"root\", \
+    #                 pwd:\"example\", \
+    #                 roles:[ \
+    #                   { \
+    #                     role:\"readWrite\", \
+    #                     db:\"innergyDB\" \
+    #                   } \
+    #                 ], \
+    #                 mechanisms:[ \
+    #                   \"SCRAM-SHA-1\" \
+    #                 ] \
+    #               })" | mongo mongo -u root -p example --authenticationDatabase admin
     - name: Perform integration test
       run: ls package-lock.json && npm run test
