@@ -30,8 +30,8 @@ jobs:
       run: npm install --global @adonisjs/cli
     - name: Generate Adonis app secret key
       run: npx adonis key:generate
-    - name: Start MongoDB
-      run: sudo systemctl start mongod
+    - name: Start Docker for Mongodb
+      run: docker run -d -p 27017:27017 mongo
     - name: Configure mongodb admin
       run: echo "db.createUser({ \  
                   user:\"root\", \
