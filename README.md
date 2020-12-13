@@ -1,3 +1,4 @@
+![Node.js CI](https://github.com/NoManColonies/innergy-m9/workflows/Node.js%20CI/badge.svg)
 ### Innergy M9 project
 
 - Visit link below for further documentations.
