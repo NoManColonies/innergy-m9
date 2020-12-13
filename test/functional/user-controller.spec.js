@@ -3,7 +3,7 @@
 const { test, trait } = use('Test/Suite')('User Controller')
 const UserModel = use('App/Models/User')
 const TokenModel = use('App/Models/Token')
-const Encrytion = use('Encrytion')
+const Encryption = use('Encryption')
 
 trait('Test/ApiClient')
 trait('Auth/Client')
@@ -17,7 +17,7 @@ const cleanUp = async ({ user, token }) => {
     )
   }
   if (token) {
-    await TokenModel.findBy({ token: await Encrytion.decrypt(token) }).then(
+    await TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(
       query => !!query && query.delete()
     )
   }
