@@ -96,7 +96,7 @@ test('should return status message of success when api session user access restr
     email: 'example@domain.host'
   })
 
-  const response = await client.get('/').loginVia(user, 'api').end()
+  const response = await client.get('/api/v1').loginVia(user, 'api').end()
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -114,6 +114,7 @@ test('should return status message of success when jwt session user request for 
     .put(`${urlEndPoint}/jwt/token`)
     .loginVia(user, 'jwt')
     .end()
+  console.log(response)
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -132,6 +133,7 @@ test('should return status message of success when jwt session user request for 
     .delete(`${urlEndPoint}/jwt/logout`)
     .loginVia(user, 'jwt')
     .end()
+  console.log(response)
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -149,6 +151,7 @@ test('should return status message of success when api session user request for 
     .delete(`${urlEndPoint}/api/logout`)
     .loginVia(user, 'api')
     .end()
+  console.log(response)
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
