@@ -41,7 +41,8 @@ test('should return status message of success and token upon user login via JWT.
   await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
 
   const response = await client
@@ -60,7 +61,8 @@ test('should return status message of success and token upon user login via API.
   await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
 
   const response = await client
@@ -79,10 +81,11 @@ test('should return status message of success when jwt session user access restr
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
 
-  const response = await client.get('/').loginVia(user, 'jwt').end()
+  const response = await client.get('/api/v1').loginVia(user, 'jwt').end()
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -93,10 +96,20 @@ test('should return status message of success when api session user access restr
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
 
-  const response = await client.get('/api/v1').loginVia(user, 'api').end()
+  const { body } = await client
+    .post(`${urlEndPoint}/api/login`)
+    .header('username', 'test')
+    .header('password', 'password')
+    .end()
+
+  const response = await client
+    .get('/api/v1')
+    .header('Authorization', `Bearer ${body.token.token}`)
+    .end()
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -107,17 +120,24 @@ test('should return status message of success when jwt session user request for 
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
+
+  const { body } = await client
+    .post(`${urlEndPoint}/jwt/login`)
+    .header('username', 'test')
+    .header('password', 'password')
+    .end()
 
   const response = await client
     .put(`${urlEndPoint}/jwt/token`)
-    .loginVia(user, 'jwt')
+    .header('Authorization', `Bearer ${body.token.token}`)
+    .header('refreshToken', body.token.refreshToken)
     .end()
-  console.log(response)
 
   cleanUp({ user: 'test' })
-  response.assertStatus(200)
+  response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
   cleanUp({ token: response.body.token.refreshToken })
 })
@@ -126,14 +146,20 @@ test('should return status message of success when jwt session user request for 
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
+
+  const { body } = await client
+    .post(`${urlEndPoint}/jwt/login`)
+    .header('username', 'test')
+    .header('password', 'password')
+    .end()
 
   const response = await client
     .delete(`${urlEndPoint}/jwt/logout`)
-    .loginVia(user, 'jwt')
+    .header('Authorization', `Bearer ${body.token.token}`)
     .end()
-  console.log(response)
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
@@ -144,14 +170,20 @@ test('should return status message of success when api session user request for 
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
-    email: 'example@domain.host'
+    email: 'example@domain.host',
+    role: 'user'
   })
+
+  const { body } = await client
+    .post(`${urlEndPoint}/jwt/login`)
+    .header('username', 'test')
+    .header('password', 'password')
+    .end()
 
   const response = await client
     .delete(`${urlEndPoint}/api/logout`)
-    .loginVia(user, 'api')
+    .header('Authorization', `Bearer ${body.token.token}`)
     .end()
-  console.log(response)
 
   cleanUp({ user: 'test' })
   response.assertStatus(200)
