@@ -54,7 +54,7 @@ test('should return status message of success and token upon user login via JWT.
   cleanUp({ user: 'test' })
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
-  // cleanUp({ token: response.body.token.refreshToken })
+  cleanUp({ token: response.body.token.refreshToken })
 })
 
 test('should return status message of success and token upon user login via API.', async ({ client }) => {
