@@ -66,7 +66,7 @@ class DeviceController {
   async index ({ response, request }) {
     const { role, u_id } = request
 
-    const devices = DeviceUtil({ DeviceModel }).getDevices({ role, u_id })
+    const devices = await DeviceUtil({ DeviceModel }).getDevices({ role, u_id })
 
     return response.status(200).send({
       status: 'success',
