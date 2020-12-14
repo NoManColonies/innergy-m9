@@ -10,7 +10,8 @@ trait('Auth/Client')
 
 const urlEndPoint = '/api/v1/user'
 
-const cleanUp = async ({ token }) => await TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(query => query.delete())
+// eslint-disable-next-line
+const cleanUp = async ({ token }) => TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(query => query.delete())
 
 test('should return status message of success upon user instance creation.', async ({ client }) => {
   const response = await client
