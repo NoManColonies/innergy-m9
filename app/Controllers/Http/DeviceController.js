@@ -14,6 +14,7 @@ const units = {
   windspkm: 'km/h',
   windspms: 'm/s',
   winddrct: 'degree',
+  gas: 'KOhms',
   brig: 'lux',
   volt: 'voltage',
   pm1: 'micro gram/cubic meter',
