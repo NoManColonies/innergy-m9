@@ -12,15 +12,19 @@ const urlEndPoint = '/api/v1/user'
 
 const cleanUp = async ({ user, token }) => {
   if (user) {
-    await UserModel.findBy({ auth_id: user }).then(query => {
-      if (query) return query.delete()
-    })
+    await Promise.resolve(
+      await UserModel.findBy({ auth_id: user }).then(query => {
+        if (query) return query.delete()
+      })
+    )
   }
   if (token) {
-    await TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(
-      query => {
-        if (query) return query.delete()
-      }
+    await Promise.resolve(
+      await TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(
+        query => {
+          if (query) return query.delete()
+        }
+      )
     )
   }
 }
