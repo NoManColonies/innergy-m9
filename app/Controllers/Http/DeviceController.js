@@ -50,7 +50,7 @@ class DeviceController {
     const device = await DeviceModel.findBy({ u_id })
 
     await Promise.all(
-      DeviceUtil.feedNewData({
+      DeviceUtil({ DeviceModel }).feedNewData({
         data,
         device,
         timestamp_date,
