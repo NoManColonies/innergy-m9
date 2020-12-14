@@ -33,19 +33,21 @@ test('should return status message of success upon user instance creation.', asy
     .header('email', 'example@domain.host')
     .end()
 
-  cleanUp({ user: 'test' })
+  await cleanUp({ user: 'test' })
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
-  cleanUp({ token: response.body.token.refreshToken })
+  await cleanUp({ token: response.body.token.refreshToken })
 })
 
 test('should return status message of success and token upon user login via JWT.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
+
+  await user.save()
 
   const response = await client
     .post(`${urlEndPoint}/jwt/login`)
@@ -53,20 +55,21 @@ test('should return status message of success and token upon user login via JWT.
     .header('password', 'password')
     .end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
-  cleanUp({ token: response.body.token.refreshToken })
+  await cleanUp({ token: response.body.token.refreshToken })
 })
 
 test('should return status message of success and token upon user login via API.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
+
+  await user.save()
 
   const response = await client
     .post(`${urlEndPoint}/api/login`)
@@ -74,52 +77,55 @@ test('should return status message of success and token upon user login via API.
     .header('password', 'password')
     .end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
-  cleanUp({ token: response.body.token.token })
+  await cleanUp({ token: response.body.token.token })
 })
 
 test('should return status message of success when jwt session user access restricted route.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
 
+  await user.save()
+
   const response = await client.get('/api/v1').loginVia(user, 'jwt').end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
 
 test('should return status message of success when api session user access restricted route.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
 
+  await user.save()
+
   const response = await client.get('/api/v1').loginVia(user, 'api').end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
 
 test('should return status message of success when jwt session user request for a new tokens.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
+
+  await user.save()
 
   const { body } = await client
     .post(`${urlEndPoint}/jwt/login`)
@@ -133,20 +139,21 @@ test('should return status message of success when jwt session user request for 
     .header('refreshToken', body.token.refreshToken)
     .end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
-  cleanUp({ token: response.body.token.refreshToken })
+  await cleanUp({ token: response.body.token.refreshToken })
 })
 
 test('should return status message of success when jwt session user request for logout.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
+
+  await user.save()
 
   const { body } = await client
     .post(`${urlEndPoint}/jwt/login`)
@@ -160,27 +167,27 @@ test('should return status message of success when jwt session user request for 
     .header('refreshToken', body.token.refreshToken)
     .end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
 
 test('should return status message of success when api session user request for logout.', async ({ client }) => {
-  const user = await UserModel.create({
+  const user = new UserModel({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
     role: 'user'
   })
 
+  await user.save()
+
   const response = await client
     .delete(`${urlEndPoint}/api/logout`)
     .loginVia(user, 'api')
     .end()
 
-  cleanUp({ user: 'test' })
-  await user.delete()
+  await cleanUp({ user: 'test' })
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
