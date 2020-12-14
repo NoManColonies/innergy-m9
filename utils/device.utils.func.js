@@ -57,7 +57,7 @@ module.exports = ({ RawModel, DeviceModel }) => {
       if (timestamp.indexOf('~') === -1) {
         const filter = new Date(timestamp)
 
-        const timestamp_date = new Date(filter.setHours(24))
+        const timestamp_date = new Date(filter.setHours(7))
 
         return DeviceModel.where(
           role === 'admin' ? { u_id: dev_id } : { u_id: dev_id, owner: u_id }

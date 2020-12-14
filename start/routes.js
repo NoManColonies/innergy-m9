@@ -23,7 +23,9 @@ Route.group(() => {
     'auth:user'
   )
   Route.post('/device/feed', 'DeviceController.store').middleware('auth:device')
-  Route.post('/user/create', 'AuthController.store').middleware('guest')
+  Route.post('/user/create', 'AuthController.store')
+    .middleware('guest')
+    .validator('Registration')
   Route.post('/user/jwt/login', 'AuthController.loginJwt').middleware('guest')
   Route.post('/user/api/login', 'AuthController.loginApi').middleware('guest')
   Route.put('/user/jwt/token', 'AuthController.refreshJwtToken')
@@ -43,7 +45,7 @@ Route.group(() => {
   )
   Route.get(
     '/:dev_id/t/:timestamp',
-    'DeviceV1Controller.showWithTimestamp'
+    'DeviceController.showWithTimestamp'
   ).middleware('auth:user,admin')
   Route.get('/:dev_id/s/:type', 'DeviceController.showWithType').middleware(
     'auth:user,admin'

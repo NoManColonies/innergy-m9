@@ -15,7 +15,10 @@ const units = {
   windspms: 'm/s',
   winddrct: 'degree',
   brig: 'lux',
-  volt: 'voltage'
+  volt: 'voltage',
+  pm1: 'micro gram/cubic meter',
+  pm2_5: 'micro gram/cubic meter',
+  pm10: 'micro gram/cubic meter'
 }
 
 class DeviceController {
@@ -78,7 +81,7 @@ class DeviceController {
 
     const currentDate = getCurrentDate()
 
-    const data = DeviceUtil({ DeviceModel }).getAll({
+    const data = await DeviceUtil({ DeviceModel }).getAll({
       role,
       dev_id,
       u_id,
@@ -96,7 +99,7 @@ class DeviceController {
 
     const currentDate = getCurrentDate()
 
-    const devices = DeviceUtil({ DeviceModel }).queryLatest({
+    const devices = await DeviceUtil({ DeviceModel }).queryLatest({
       role,
       u_id,
       currentDate
@@ -112,13 +115,15 @@ class DeviceController {
 
     const { dev_id, timestamp } = params
 
-    const data = DeviceUtil({ DeviceModel }).queryWithTimestampConditions({
-      timestamp,
-      u_id,
-      role,
-      dev_id,
-      currentDate: getCurrentDate()
-    })
+    const data = await DeviceUtil({ DeviceModel }).queryWithTimestampConditions(
+      {
+        timestamp,
+        u_id,
+        role,
+        dev_id,
+        currentDate: getCurrentDate()
+      }
+    )
 
     return response.status(200).send({
       status: 'success',
@@ -149,7 +154,7 @@ class DeviceController {
 
     const { dev_id, type, timestamp } = params
 
-    const data = DeviceUtil({ DeviceModel }).queryWithTimestampConditions(
+    const data = await DeviceUtil({ DeviceModel }).queryWithTimestampConditions(
       {
         timestamp,
         type,

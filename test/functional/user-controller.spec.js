@@ -12,13 +12,15 @@ const urlEndPoint = '/api/v1/user'
 
 const cleanUp = async ({ user, token }) => {
   if (user) {
-    await UserModel.findBy({ username: user }).then(
-      query => !!query && query.delete()
-    )
+    await UserModel.findBy({ username: user }).then(query => {
+      if (query) return query.delete()
+    })
   }
   if (token) {
     await TokenModel.findBy({ token: await Encryption.decrypt(token) }).then(
-      query => !!query && query.delete()
+      query => {
+        if (query) return query.delete()
+      }
     )
   }
 }
@@ -38,7 +40,7 @@ test('should return status message of success upon user instance creation.', asy
 })
 
 test('should return status message of success and token upon user login via JWT.', async ({ client }) => {
-  await UserModel.create({
+  const user = await UserModel.create({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
@@ -52,13 +54,14 @@ test('should return status message of success and token upon user login via JWT.
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
   cleanUp({ token: response.body.token.refreshToken })
 })
 
 test('should return status message of success and token upon user login via API.', async ({ client }) => {
-  await UserModel.create({
+  const user = await UserModel.create({
     username: 'test',
     password: 'password',
     email: 'example@domain.host',
@@ -72,6 +75,7 @@ test('should return status message of success and token upon user login via API.
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
   cleanUp({ token: response.body.token.token })
@@ -88,6 +92,7 @@ test('should return status message of success when jwt session user access restr
   const response = await client.get('/api/v1').loginVia(user, 'jwt').end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
@@ -112,6 +117,7 @@ test('should return status message of success when api session user access restr
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
@@ -137,6 +143,7 @@ test('should return status message of success when jwt session user request for 
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(201)
   response.assertJSONSubset({ status: 'success' })
   cleanUp({ token: response.body.token.refreshToken })
@@ -162,6 +169,7 @@ test('should return status message of success when jwt session user request for 
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
@@ -186,6 +194,7 @@ test('should return status message of success when api session user request for 
     .end()
 
   cleanUp({ user: 'test' })
+  await user.delete()
   response.assertStatus(200)
   response.assertJSONSubset({ status: 'success' })
 })
