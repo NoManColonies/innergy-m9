@@ -74,7 +74,6 @@ test('should return status message of success and token upon user login via API.
     .header('password', 'password')
     .end()
 
-  console.log(response)
   cleanUp({ user: 'test' })
   await user.delete()
   response.assertStatus(201)
