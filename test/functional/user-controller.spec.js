@@ -12,7 +12,7 @@ const urlEndPoint = '/api/v1/user'
 
 const cleanUp = async ({ user, token }) => {
   if (user) {
-    await UserModel.findBy({ username: user }).then(query => {
+    await UserModel.findBy({ auth_id: user }).then(query => {
       if (query) return query.delete()
     })
   }
@@ -74,6 +74,7 @@ test('should return status message of success and token upon user login via API.
     .header('password', 'password')
     .end()
 
+  console.log(response)
   cleanUp({ user: 'test' })
   await user.delete()
   response.assertStatus(201)
@@ -105,16 +106,7 @@ test('should return status message of success when api session user access restr
     role: 'user'
   })
 
-  const { body } = await client
-    .post(`${urlEndPoint}/api/login`)
-    .header('username', 'test')
-    .header('password', 'password')
-    .end()
-
-  const response = await client
-    .get('/api/v1')
-    .header('Authorization', `Bearer ${body.token.token}`)
-    .end()
+  const response = await client.get('/api/v1').loginVia(user, 'api').end()
 
   cleanUp({ user: 'test' })
   await user.delete()
@@ -149,7 +141,7 @@ test('should return status message of success when jwt session user request for 
   cleanUp({ token: response.body.token.refreshToken })
 })
 
-test('should return status message of success when jwt session user request for logout', async ({ client }) => {
+test('should return status message of success when jwt session user request for logout.', async ({ client }) => {
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
@@ -166,6 +158,7 @@ test('should return status message of success when jwt session user request for 
   const response = await client
     .delete(`${urlEndPoint}/jwt/logout`)
     .header('Authorization', `Bearer ${body.token.token}`)
+    .header('refreshToken', body.token.refreshToken)
     .end()
 
   cleanUp({ user: 'test' })
@@ -174,7 +167,7 @@ test('should return status message of success when jwt session user request for 
   response.assertJSONSubset({ status: 'success' })
 })
 
-test('should return status message of success when api session user request for logout', async ({ client }) => {
+test('should return status message of success when api session user request for logout.', async ({ client }) => {
   const user = await UserModel.create({
     username: 'test',
     password: 'password',
@@ -182,15 +175,9 @@ test('should return status message of success when api session user request for 
     role: 'user'
   })
 
-  const { body } = await client
-    .post(`${urlEndPoint}/jwt/login`)
-    .header('username', 'test')
-    .header('password', 'password')
-    .end()
-
   const response = await client
     .delete(`${urlEndPoint}/api/logout`)
-    .header('Authorization', `Bearer ${body.token.token}`)
+    .loginVia(user, 'api')
     .end()
 
   cleanUp({ user: 'test' })

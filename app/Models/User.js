@@ -15,6 +15,9 @@ class User extends Model {
      * A hook to hash the user password before saving
      * it to the database.
      */
+    this.addHook('beforeCreate', async userInstance => {
+      if (!userInstance.dirty.auth_id) userInstance.auth_id = userInstance.dirty.username
+    })
     this.addHook('beforeSave', async userInstance => {
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
