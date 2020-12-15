@@ -2,7 +2,7 @@
 
 const { ServiceProvider } = require('@adonisjs/fold')
 
-class ExistRuleProvider extends ServiceProvider {
+class DeviceExistRuleProvider extends ServiceProvider {
   /**
    * Register namespaces to the IoC container
    *
@@ -10,7 +10,9 @@ class ExistRuleProvider extends ServiceProvider {
    *
    * @return {void}
    */
-  register () {}
+  register () {
+    //
+  }
 
   /**
    * Attach context getter when all providers have
@@ -21,6 +23,7 @@ class ExistRuleProvider extends ServiceProvider {
    * @return {void}
    */
   boot () {
+    //
     const Validator = use('Validator')
     const UserModel = use('App/Models/User')
 
@@ -34,16 +37,15 @@ class ExistRuleProvider extends ServiceProvider {
         return
       }
 
-      const [column] = args
-      const row = await UserModel.findBy({ [column]: value, role: 'user' })
+      const row = await UserModel.findBy({ u_id: value, role: 'device' })
 
-      if (row) {
+      if (!row) {
         throw message
       }
     }
 
-    Validator.extend('userExists', existsFn)
+    Validator.extend('deviceExists', existsFn)
   }
 }
 
-module.exports = ExistRuleProvider
+module.exports = DeviceExistRuleProvider

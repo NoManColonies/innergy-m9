@@ -2,7 +2,7 @@
 
 const { ServiceProvider } = require('@adonisjs/fold')
 
-class ExistRuleProvider extends ServiceProvider {
+class DatabodyRuleProvider extends ServiceProvider {
   /**
    * Register namespaces to the IoC container
    *
@@ -10,7 +10,9 @@ class ExistRuleProvider extends ServiceProvider {
    *
    * @return {void}
    */
-  register () {}
+  register () {
+    //
+  }
 
   /**
    * Attach context getter when all providers have
@@ -21,8 +23,8 @@ class ExistRuleProvider extends ServiceProvider {
    * @return {void}
    */
   boot () {
+    //
     const Validator = use('Validator')
-    const UserModel = use('App/Models/User')
 
     const existsFn = async (data, field, message, args, get) => {
       const value = get(data, field)
@@ -34,16 +36,17 @@ class ExistRuleProvider extends ServiceProvider {
         return
       }
 
-      const [column] = args
-      const row = await UserModel.findBy({ [column]: value, role: 'user' })
+      const rows = typeof value === typeof []
+        ? value.filter(row => !row.value || !row.type)
+        : ['']
 
-      if (row) {
+      if (rows.length) {
         throw message
       }
     }
 
-    Validator.extend('userExists', existsFn)
+    Validator.extend('databodyExists', existsFn)
   }
 }
 
-module.exports = ExistRuleProvider
+module.exports = DatabodyRuleProvider

@@ -32,7 +32,6 @@ class Registration {
     const password = this.ctx.request.header('password')
     const email = this.ctx.request.header('email')
 
-    // return Object.assign({}, requestBody, { username, password })
     return { ...requestBody, username, password, email }
   }
 

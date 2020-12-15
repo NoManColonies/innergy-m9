@@ -22,12 +22,18 @@ Route.group(() => {
   Route.post('/device/create', 'DeviceController.registerDevice').middleware(
     'auth:user'
   )
-  Route.post('/device/feed', 'DeviceController.store').middleware('auth:device')
+  Route.post('/device/feed', 'DeviceController.store')
+    .middleware('auth:device')
+    .validator('DeviceFeed')
   Route.post('/user/create', 'AuthController.store')
     .middleware('guest')
     .validator('Registration')
-  Route.post('/user/jwt/login', 'AuthController.loginJwt').middleware('guest')
-  Route.post('/user/api/login', 'AuthController.loginApi').middleware('guest')
+  Route.post('/user/jwt/login', 'AuthController.loginJwt')
+    .middleware('guest')
+    .validator('Login')
+  Route.post('/user/api/login', 'AuthController.loginApi')
+    .middleware('guest')
+    .validator('Login')
   Route.put('/user/jwt/token', 'AuthController.refreshJwtToken')
   Route.delete('/user/jwt/logout', 'AuthController.logoutJwt').middleware(
     'auth:user,admin'
@@ -39,23 +45,22 @@ Route.group(() => {
     'auth:user'
   )
   Route.get('/', 'DeviceController.index').middleware('auth:user,admin')
-  Route.get('/:dev_id', 'DeviceController.show').middleware('auth:user,admin')
+  Route.get('/:dev_id', 'DeviceController.show')
+    .middleware('auth:user,admin')
+    .validator('DeviceQuery')
   Route.get('/t/latest', 'DeviceController.showLatest').middleware(
     'auth:user,admin'
   )
-  Route.get(
-    '/:dev_id/t/:timestamp',
-    'DeviceController.showWithTimestamp'
-  ).middleware('auth:user,admin')
-  Route.get('/:dev_id/s/:type', 'DeviceController.showWithType').middleware(
-    'auth:user,admin'
-  )
-  Route.get(
-    '/:dev_id/t/:timestamp/s/:type',
-    'DeviceController.showWithFilter'
-  ).middleware('auth:user,admin')
-  Route.get(
-    '/:dev_id/s/:type/t/:timestamp',
-    'DeviceController.showWithFilter'
-  ).middleware('auth:user,admin')
+  Route.get('/:dev_id/t/:timestamp', 'DeviceController.showWithTimestamp')
+    .middleware('auth:user,admin')
+    .validator('DeviceQuery')
+  Route.get('/:dev_id/s/:type', 'DeviceController.showWithType')
+    .middleware('auth:user,admin')
+    .validator('DeviceQuery')
+  Route.get('/:dev_id/t/:timestamp/s/:type', 'DeviceController.showWithFilter')
+    .middleware('auth:user,admin')
+    .validator('DeviceQuery')
+  Route.get('/:dev_id/s/:type/t/:timestamp', 'DeviceController.showWithFilter')
+    .middleware('auth:user,admin')
+    .validator('DeviceQuery')
 }).prefix('api/v1')

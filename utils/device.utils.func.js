@@ -122,8 +122,8 @@ module.exports = ({ RawModel, DeviceModel }) => {
       .with('sensors', builder => builder
         .where({ type })
         .setHidden(['_id', 's_id', 'ref_u_id'])
+        .sort('-timestamp_date')
         .with('valueProperties', subBuilder => subBuilder.sort('-timestamp').setHidden(['_id', 'ref_s_id'])))
-      .sort('-timestamp_date')
       .first()
       .then(query => query.getRelated('sensors')),
     queryLatest: ({ role, u_id, currentDate }) => DeviceModel.where(

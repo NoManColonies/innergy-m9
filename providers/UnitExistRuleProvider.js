@@ -2,7 +2,7 @@
 
 const { ServiceProvider } = require('@adonisjs/fold')
 
-class ExistRuleProvider extends ServiceProvider {
+class UnitExistRuleProvider extends ServiceProvider {
   /**
    * Register namespaces to the IoC container
    *
@@ -10,7 +10,9 @@ class ExistRuleProvider extends ServiceProvider {
    *
    * @return {void}
    */
-  register () {}
+  register () {
+    //
+  }
 
   /**
    * Attach context getter when all providers have
@@ -21,8 +23,24 @@ class ExistRuleProvider extends ServiceProvider {
    * @return {void}
    */
   boot () {
+    //
     const Validator = use('Validator')
-    const UserModel = use('App/Models/User')
+
+    const units = {
+      temp: 'degree Celcius',
+      moist: 'Percentage',
+      pres: 'Pa',
+      alti: 'meter',
+      windspkm: 'km/h',
+      windspms: 'm/s',
+      winddrct: 'degree',
+      gas: 'KOhms',
+      brig: 'lux',
+      volt: 'voltage',
+      pm1: 'micro gram/cubic meter',
+      pm2_5: 'micro gram/cubic meter',
+      pm10: 'micro gram/cubic meter'
+    }
 
     const existsFn = async (data, field, message, args, get) => {
       const value = get(data, field)
@@ -34,16 +52,15 @@ class ExistRuleProvider extends ServiceProvider {
         return
       }
 
-      const [column] = args
-      const row = await UserModel.findBy({ [column]: value, role: 'user' })
+      const row = units[value]
 
-      if (row) {
+      if (!row) {
         throw message
       }
     }
 
-    Validator.extend('userExists', existsFn)
+    Validator.extend('unitExists', existsFn)
   }
 }
 
-module.exports = ExistRuleProvider
+module.exports = UnitExistRuleProvider

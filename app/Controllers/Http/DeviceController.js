@@ -137,12 +137,12 @@ class DeviceController {
 
     const { dev_id, type } = params
 
-    const data = await DeviceUtil({ DeviceModel }).queryWithType(
+    const data = await DeviceUtil({ DeviceModel }).queryWithType({
       role,
-      dev_id,
       u_id,
+      dev_id,
       type
-    )
+    })
 
     return response.status(200).send({
       status: 'success',

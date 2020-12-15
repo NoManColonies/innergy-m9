@@ -19,7 +19,10 @@ const providers = [
   // '@adonisjs/lucid/providers/LucidProvider',
   'lucid-mongo/providers/LucidMongoProvider',
   '@adonisjs/validator/providers/ValidatorProvider',
-  path.join(__dirname, '..', 'providers/ExistRuleProvider')
+  path.join(__dirname, '..', 'providers/ExistRuleProvider'),
+  path.join(__dirname, '..', 'providers/UnitExistRuleProvider'),
+  path.join(__dirname, '..', 'providers/DatabodyRuleProvider'),
+  path.join(__dirname, '..', 'providers/DeviceExistRuleProvider')
 ]
 
 /*
